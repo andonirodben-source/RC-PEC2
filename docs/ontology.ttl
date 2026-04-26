@@ -1,0 +1,2612 @@
+@prefix : <http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#> .
+
+<http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito> rdf:type owl:Ontology ;
+                                                                                      <http://purl.org/dc/terms/abstract> "This ontology models semantically the EUDAMED cataloge, including devices, manufacturers, identified risks, incidents and security corrective actions." ;
+                                                                                      <http://purl.org/dc/terms/contributor> " Andoni Rodriguez Benito" ;
+                                                                                      <http://purl.org/dc/terms/created> "2026-04-26"^^xsd:date ;
+                                                                                      <http://purl.org/dc/terms/creator> " Andoni Rodriguez Benito" ;
+                                                                                      <http://purl.org/dc/terms/description> "An ontology about the european cataloge of high risk medical devices and in vitro diagnosis devices, inside the regulatory framework MDR (EU 2017/745) and IVDR (EU 2017/746)" ;
+                                                                                      <http://purl.org/dc/terms/title> " RC PEC2 Ontology" ;
+                                                                                      rdfs:label "RC-PEC2-AndoniRodriguezBenito" ;
+                                                                                      owl:versionInfo "0.0.1" ;
+                                                                                      <https://w3id.org/widoco/vocab#introduction> "The goal of the ontology is to allow the accurate share of data among manufacturers, regulatory entities, hospitals and patients." .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/abstract
+<http://purl.org/dc/terms/abstract> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/contributor
+<http://purl.org/dc/terms/contributor> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/created
+<http://purl.org/dc/terms/created> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/creator
+<http://purl.org/dc/terms/creator> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/description
+<http://purl.org/dc/terms/description> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/introduction
+<http://purl.org/dc/terms/introduction> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/title
+<http://purl.org/dc/terms/title> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#sameAs
+rdfs:sameAs rdf:type owl:AnnotationProperty .
+
+
+###  https://w3id.org/widoco/vocab#introduction
+<https://w3id.org/widoco/vocab#introduction> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.w3.org/2001/XMLSchema#date
+xsd:date rdf:type rdfs:Datatype .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#affectsDevice
+:affectsDevice rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf owl:topObjectProperty ;
+               rdfs:domain :Incident ;
+               rdfs:range :Device ;
+               rdfs:comment "Assigns a device to an incident." ;
+               rdfs:label "Affects the device" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#affectsDeviceType
+:affectsDeviceType rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf owl:topObjectProperty ;
+                   rdfs:domain :Risk ;
+                   rdfs:range :Device ;
+                   rdfs:comment "Assigns a device type to a risk." ;
+                   rdfs:label "Affects the device type" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#affectsPatientWithSex
+:affectsPatientWithSex rdf:type owl:ObjectProperty ;
+                       rdfs:subPropertyOf owl:topObjectProperty ;
+                       rdfs:domain :Incident ;
+                       rdfs:range :Sex ;
+                       rdfs:comment "Assigns a biological sex of a patient to an incident." ;
+                       rdfs:label "Affects patients of sex" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#appliesTo
+:appliesTo rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf owl:topObjectProperty ;
+           rdf:type owl:FunctionalProperty ;
+           rdfs:domain :CorrectiveAction ;
+           rdfs:range :Incident ;
+           rdfs:comment "Assigns an incident to the corrective action to mitigate it." ;
+           rdfs:label "Corrective action applies to" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#belongsToRiskCategory
+:belongsToRiskCategory rdf:type owl:ObjectProperty ;
+                       rdfs:subPropertyOf owl:topObjectProperty ;
+                       rdf:type owl:FunctionalProperty ;
+                       rdfs:domain :Risk ;
+                       rdfs:range :RiskCategory ;
+                       rdfs:comment "Assigns a risk category to a risk." ;
+                       rdfs:label "Assigned risk category" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#doneAtGeographicalLocation
+:doneAtGeographicalLocation rdf:type owl:ObjectProperty ;
+                            rdfs:subPropertyOf owl:topObjectProperty ;
+                            rdfs:domain :CorrectiveAction ;
+                            rdfs:range :GeographicalLocation ;
+                            rdfs:comment "Assigns a location to a corrective action." ;
+                            rdfs:label "Corrective action carried out at" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#hasStatus
+:hasStatus rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf owl:topObjectProperty ;
+           rdf:type owl:FunctionalProperty ;
+           rdfs:domain :CorrectiveAction ;
+           rdfs:range :CorrectiveActionStatus ;
+           rdfs:comment "Assigns a status to a corrective action." ;
+           rdfs:label "Corrective action has status" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#inRegulatoryFrame
+:inRegulatoryFrame rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf owl:topObjectProperty ;
+                   rdf:type owl:FunctionalProperty ;
+                   rdfs:domain :Device ;
+                   rdfs:range :RegulatoryFrame ;
+                   rdfs:comment "Assigns a regulatory frame to a device." ;
+                   rdfs:label "Is within the regulatory frame" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#involvesRisk
+:involvesRisk rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf owl:topObjectProperty ;
+              rdfs:domain :Incident ;
+              rdfs:range :Risk ;
+              rdfs:comment "Assigns a risk to an incident." ;
+              rdfs:label "Involves the risk" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#locatedAt
+:locatedAt rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf owl:topObjectProperty ;
+           rdf:type owl:FunctionalProperty ;
+           rdfs:domain :Manufacturer ;
+           rdfs:range :Country ;
+           rdfs:comment "Assigns a geographical location to a manufacturer." ;
+           rdfs:label "Located at geographical location" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#manufacturedBy
+:manufacturedBy rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf owl:topObjectProperty ;
+                rdf:type owl:FunctionalProperty ;
+                rdfs:domain :Device ;
+                rdfs:range :Manufacturer ;
+                rdfs:comment "Assigns a manufacturer to the device they produced." ;
+                rdfs:label "Device manufactured by" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#occursWithProbability
+:occursWithProbability rdf:type owl:ObjectProperty ;
+                       rdfs:subPropertyOf owl:topObjectProperty ;
+                       rdf:type owl:FunctionalProperty ;
+                       rdfs:domain :Risk ;
+                       rdfs:range :OccurrenceProbability ;
+                       rdfs:comment "Assigns an occurrence probability to a risk." ;
+                       rdfs:label "Occurrence probability" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#ofRiskClass
+:ofRiskClass rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf owl:topObjectProperty ;
+             rdf:type owl:FunctionalProperty ;
+             rdfs:domain :Device ;
+             rdfs:range :RiskClass ;
+             rdfs:comment "Assigns a risk class to a device." ;
+             rdfs:label "Assigned risk class" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#ofRiskSeverity
+:ofRiskSeverity rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf owl:topObjectProperty ;
+                rdf:type owl:FunctionalProperty ;
+                rdfs:domain :Risk ;
+                rdfs:range :RiskSeverity ;
+                rdfs:comment "Assigns a risk severity to a risk." ;
+                rdfs:label "Assigned risk severity" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#reportedAt
+:reportedAt rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf owl:topObjectProperty ;
+            rdf:type owl:FunctionalProperty ;
+            rdfs:domain :Incident ;
+            rdfs:range :GeographicalLocation ;
+            rdfs:comment "Assigns a geographical location to an incident." ;
+            rdfs:label "Reported at location" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#reportedBy
+:reportedBy rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf owl:topObjectProperty ;
+            rdf:type owl:FunctionalProperty ;
+            rdfs:domain :Incident ;
+            rdfs:range :Manufacturer ;
+            rdfs:comment "Assigns a manufacturer to an incident as the one who reported it." ;
+            rdfs:label "Incident reported by" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#reportsTo
+:reportsTo rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf owl:topObjectProperty ;
+           rdf:type owl:FunctionalProperty ;
+           rdfs:domain :Manufacturer ;
+           rdfs:range :CompetentAuthority ;
+           rdfs:comment "Assigns a competent authority to report to, to a manufacturer." ;
+           rdfs:label "Manufacturer reports to" .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#caActionDate
+:caActionDate rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf owl:topDataProperty ;
+              rdfs:domain :CorrectiveAction ;
+              rdfs:range xsd:date ;
+              rdfs:comment "Date when the corrective action starts." ;
+              rdfs:label "Corrective action date" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#caClosureDate
+:caClosureDate rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf owl:topDataProperty ;
+               rdfs:domain :CorrectiveAction ;
+               rdfs:range xsd:date ;
+               rdfs:comment "Date when the corrective action is considered finished." ;
+               rdfs:label "Corrective action closure date" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#caDevicesAffected
+:caDevicesAffected rdf:type owl:DatatypeProperty ;
+                   rdfs:subPropertyOf owl:topDataProperty ;
+                   rdfs:domain :CorrectiveAction ;
+                   rdfs:range xsd:integer ;
+                   rdfs:comment "Number of devices affected by the corrective action." ;
+                   rdfs:label "Corrective action affected devices" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#caEudamedRef
+:caEudamedRef rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf owl:topDataProperty ;
+              rdfs:domain :CorrectiveAction ;
+              rdfs:range xsd:string ;
+              rdfs:comment "Eudamed reference for the corrective action." ;
+              rdfs:label "Corrective action Eudamed Reference" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#caScope
+:caScope rdf:type owl:DatatypeProperty ;
+         rdfs:subPropertyOf owl:topDataProperty ;
+         rdfs:domain :CorrectiveAction ;
+         rdfs:range xsd:string ;
+         rdfs:comment "Scope of the corrective action." ;
+         rdfs:label "Corrective action scope" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#dvIntendedPurpose
+:dvIntendedPurpose rdf:type owl:DatatypeProperty ;
+                   rdfs:subPropertyOf owl:topDataProperty ;
+                   rdfs:domain :Device ;
+                   rdfs:range xsd:string ;
+                   rdfs:comment "Purpose for which the medical device was intended." ;
+                   rdfs:label "Medical device Intended purpose" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#dvIsActive
+:dvIsActive rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf owl:topDataProperty ;
+            rdfs:domain :Device ;
+            rdfs:range xsd:boolean ;
+            rdfs:comment "Indicates whether the medical device is active." ;
+            rdfs:label "Medical device is active?" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#dvIsImplantable
+:dvIsImplantable rdf:type owl:DatatypeProperty ;
+                 rdfs:subPropertyOf owl:topDataProperty ;
+                 rdfs:domain :Device ;
+                 rdfs:range xsd:boolean ;
+                 rdfs:comment "Indicates whether the medical device is implantable." ;
+                 rdfs:label "Medical device is implantable?" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#dvIsIvd
+:dvIsIvd rdf:type owl:DatatypeProperty ;
+         rdfs:subPropertyOf owl:topDataProperty ;
+         rdfs:domain :Device ;
+         rdfs:range xsd:boolean ;
+         rdfs:comment "Indicates whether the medical device is a in vitro diagnostics device." ;
+         rdfs:label "Medical device is ivd?" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#dvIsReusable
+:dvIsReusable rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf owl:topDataProperty ;
+              rdfs:domain :Device ;
+              rdfs:range xsd:boolean ;
+              rdfs:comment "Indicates whether the medical device is reusable." ;
+              rdfs:label "Medical device is reusable?" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#dvUdiDi
+:dvUdiDi rdf:type owl:DatatypeProperty ;
+         rdfs:subPropertyOf owl:topDataProperty ;
+         rdfs:domain :Device ;
+         rdfs:range xsd:string ;
+         rdfs:comment "Unique Device Identifier for the medical device." ;
+         rdfs:label "Medical device unique device identifier" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#incCorrectiveActionTaken
+:incCorrectiveActionTaken rdf:type owl:DatatypeProperty ;
+                          rdfs:subPropertyOf owl:topDataProperty ;
+                          rdfs:domain :Incident ;
+                          rdfs:range xsd:boolean ;
+                          rdfs:comment "Indicates whether a correction action was taken on the incident." ;
+                          rdfs:label "Incident correction action taken?" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#incDetectionDate
+:incDetectionDate rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf owl:topDataProperty ;
+                  rdfs:domain :Incident ;
+                  rdfs:range xsd:date ;
+                  rdfs:comment "Date when the incident was detected." ;
+                  rdfs:label "Incident detection date" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#incEudamedIncidentRef
+:incEudamedIncidentRef rdf:type owl:DatatypeProperty ;
+                       rdfs:subPropertyOf owl:topDataProperty ;
+                       rdfs:domain :Incident ;
+                       rdfs:range xsd:string ;
+                       rdfs:comment "Eudamed reference assigned to the incident." ;
+                       rdfs:label "Incident Eudamed reference" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#incEventDate
+:incEventDate rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf owl:topDataProperty ;
+              rdfs:domain :Incident ;
+              rdfs:range xsd:date ;
+              rdfs:comment "Date when the incident took place." ;
+              rdfs:label "Incident event date" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#incOutcome
+:incOutcome rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf owl:topDataProperty ;
+            rdfs:domain :Incident ;
+            rdfs:range xsd:string ;
+            rdfs:comment "Outcome of the incident." ;
+            rdfs:label "Incident outcome" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#incPatientAge
+:incPatientAge rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf owl:topDataProperty ;
+               rdfs:domain :Incident ;
+               rdfs:range xsd:integer ;
+               rdfs:comment "Age of the patient involved in the incident." ;
+               rdfs:label "Incident patient age" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#incReportDate
+:incReportDate rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf owl:topDataProperty ;
+               rdfs:domain :Incident ;
+               rdfs:range xsd:date ;
+               rdfs:comment "Date when the incident was reported." ;
+               rdfs:label "Incident report date" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#mnAuthorizationNumber
+:mnAuthorizationNumber rdf:type owl:DatatypeProperty ;
+                       rdfs:subPropertyOf owl:topDataProperty ;
+                       rdfs:domain :Manufacturer ;
+                       rdfs:range xsd:string ;
+                       rdfs:comment "Authorization number of the manufacturer." ;
+                       rdfs:label "Manufacturer authorization number" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#mnContactEmail
+:mnContactEmail rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf owl:topDataProperty ;
+                rdfs:domain :Manufacturer ;
+                rdfs:range xsd:string ;
+                rdfs:comment "Email address for contacting the manufacturer." ;
+                rdfs:label "Manufacturer contact email" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#mnEudamedSrn
+:mnEudamedSrn rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf owl:topDataProperty ;
+              rdfs:domain :Manufacturer ;
+              rdfs:range xsd:string ;
+              rdfs:comment "Eudamed serial number assigned to the manufacturer." ;
+              rdfs:label "Manufacturer Eudamed serial number" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#rkImdrfCode
+:rkImdrfCode rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf owl:topDataProperty ;
+             rdfs:domain :Risk ;
+             rdfs:range xsd:string ;
+             rdfs:comment "Risk definition according to the International Medical Device Regulators Forum." ;
+             rdfs:label "Risk definition code" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#ActiveDevice
+:ActiveDevice rdf:type owl:Class ;
+              rdfs:subClassOf :Device ;
+              rdfs:comment "A device that has an active work." ;
+              rdfs:label "Active device" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#ActiveImplant
+:ActiveImplant rdf:type owl:Class ;
+               rdfs:subClassOf :Device ;
+               rdfs:comment "A device that must be implanted and has an active work" ;
+               rdfs:label "Active implant" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#CompetentAuthority
+:CompetentAuthority rdf:type owl:Class ;
+                    rdfs:comment "The regulatory authority that has the competence to control the regulations on the products." ;
+                    rdfs:label "Competent authority" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#ContaminationRisk
+:ContaminationRisk rdf:type owl:Class ;
+                   rdfs:subClassOf :Risk ;
+                   rdfs:comment "Risk of the device being contaminated, rendering it to malfunction." ;
+                   rdfs:label "Contamination risk" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#CorrectiveAction
+:CorrectiveAction rdf:type owl:Class ;
+                  rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasStatus ;
+                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass :CorrectiveActionStatus
+                                  ] ;
+                  rdfs:comment "Actions carried out to mitigate or fix some kind of issue." ;
+                  rdfs:label "Corrective action" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#CorrectiveActionStatus
+:CorrectiveActionStatus rdf:type owl:Class ;
+                        rdfs:comment "Status of the corrective action that is to be/was addressed." ;
+                        rdfs:label "Corrective action status" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#Country
+:Country rdf:type owl:Class ;
+         rdfs:subClassOf :GeographicalLocation ;
+         rdfs:comment "Country of location" ;
+         rdfs:label "Country" ;
+         rdfs:sameAs "https://d-nb.info/standards/elementset/gnd#Country" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#CybersecurityRisk
+:CybersecurityRisk rdf:type owl:Class ;
+                   rdfs:subClassOf :Risk ;
+                   rdfs:comment "Risk of data leaking due to a sofware issue." ;
+                   rdfs:label "Cybersecurity risk" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#Device
+:Device rdf:type owl:Class ;
+        rdfs:subClassOf [ rdf:type owl:Restriction ;
+                          owl:onProperty :manufacturedBy ;
+                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onClass :Manufacturer
+                        ] ;
+        rdfs:comment "Medical device." ;
+        rdfs:label "Device" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#DiagnosticRisk
+:DiagnosticRisk rdf:type owl:Class ;
+                rdfs:subClassOf :Risk ;
+                rdfs:comment "Risk of the device providing an inaccurate diagnosis." ;
+                rdfs:label "Diagnostic risk" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#GeographicalLocation
+:GeographicalLocation rdf:type owl:Class ;
+                      rdfs:comment "Location of the subject." ;
+                      rdfs:label "Geographical location" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#ImplantableActiveDevice
+:ImplantableActiveDevice rdf:type owl:Class ;
+                         rdfs:subClassOf :Device ;
+                         rdfs:comment "A device that can be implanted and has an active work." ;
+                         rdfs:label "Implantable active device" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#ImplantableDevice
+:ImplantableDevice rdf:type owl:Class ;
+                   rdfs:subClassOf :Device ;
+                   rdfs:comment "A device that can be implanted." ;
+                   rdfs:label "Implantable device" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#InSituCorrection
+:InSituCorrection rdf:type owl:Class ;
+                  rdfs:subClassOf :CorrectiveAction ;
+                  rdfs:comment "Some kind of correction/fix is carried out in place." ;
+                  rdfs:label "In situ correction" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#InVitroDiagnosticDevice
+:InVitroDiagnosticDevice rdf:type owl:Class ;
+                         rdfs:subClassOf :Device ;
+                         rdfs:comment "A device for in vitro diagnostics." ;
+                         rdfs:label "In vitro diagnostic device" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#Incident
+:Incident rdf:type owl:Class ;
+          rdfs:comment "Detected incident with a medical device." ;
+          rdfs:label "Incident" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#InfectionRisk
+:InfectionRisk rdf:type owl:Class ;
+               rdfs:subClassOf :Risk ;
+               rdfs:comment "Risk of infection derived from the use of the device." ;
+               rdfs:label "Infection risk" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#InjuryRisk
+:InjuryRisk rdf:type owl:Class ;
+            rdfs:subClassOf :Risk ;
+            rdfs:comment "Risk of injury for the user/patient." ;
+            rdfs:label "Injury risk" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#InterferenceRisk
+:InterferenceRisk rdf:type owl:Class ;
+                  rdfs:subClassOf :Risk ;
+                  rdfs:comment "Risk of interference with other medical devices." ;
+                  rdfs:label "Interference risk" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#MalfunctionRisk
+:MalfunctionRisk rdf:type owl:Class ;
+                 rdfs:subClassOf :Risk ;
+                 rdfs:comment "Risk of the device malfunctioning." ;
+                 rdfs:label "Malfunction risk" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#Manufacturer
+:Manufacturer rdf:type owl:Class ;
+              rdfs:comment "Medical device manufacturer." ;
+              rdfs:label "Manufacturer" ;
+              rdfs:sameAs "https://d-nb.info/standards/elementset/gnd#manufacturer" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#MaterialRisk
+:MaterialRisk rdf:type owl:Class ;
+              rdfs:subClassOf :Risk ;
+              rdfs:comment "Risk caused by the materials in the device or produced from its usage." ;
+              rdfs:label "Material risk" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#NearMissIncident
+:NearMissIncident rdf:type owl:Class ;
+                  rdfs:subClassOf :Incident ;
+                  owl:disjointWith :SeriousIncident ;
+                  rdfs:comment "Unplanned event that does not cause injury, illness, or damage, but had the potential to do so." ;
+                  rdfs:label "Near miss incident" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#OccurrenceProbability
+:OccurrenceProbability rdf:type owl:Class ;
+                       rdfs:comment "Probability of something occurring." ;
+                       rdfs:label "Ocurrence probability" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#RadiationRisk
+:RadiationRisk rdf:type owl:Class ;
+               rdfs:subClassOf :Risk ;
+               rdfs:comment "Risk of getting a higher radiation level from the device than that considered safe." ;
+               rdfs:label "Radiation risk" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#Recall
+:Recall rdf:type owl:Class ;
+        rdfs:subClassOf :CorrectiveAction ;
+        rdfs:comment "A recall order is issued to remove the products from the market." ;
+        rdfs:label "Product recall" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#RegulatoryFrame
+:RegulatoryFrame rdf:type owl:Class ;
+                 rdfs:comment "Regulatory framework inside the EU." ;
+                 rdfs:label "Regulatory framework" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#Risk
+:Risk rdf:type owl:Class ;
+      rdfs:comment "Risk that a medical device can entail." ;
+      rdfs:label "Risk" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#RiskCategory
+:RiskCategory rdf:type owl:Class ;
+              rdfs:comment "Category of the risk that a medical device may entail." ;
+              rdfs:label "Risk category" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#RiskClass
+:RiskClass rdf:type owl:Class ;
+           rdfs:comment "Classification of the assessed risk." ;
+           rdfs:label "Risk class" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#RiskSeverity
+:RiskSeverity rdf:type owl:Class ;
+              rdfs:comment "Indicates how severe the risk associated to the device is." ;
+              rdfs:label "Risk severity" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#SafetyAlert
+:SafetyAlert rdf:type owl:Class ;
+             rdfs:subClassOf :CorrectiveAction ;
+             rdfs:comment "An alert is issued to every user of the product." ;
+             rdfs:label "Safety alert" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#SelfTestDevice
+:SelfTestDevice rdf:type owl:Class ;
+                rdfs:subClassOf :Device ;
+                rdfs:comment "A test for the patient to execute by theirselves." ;
+                rdfs:label "Self test device" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#SeriousIncident
+:SeriousIncident rdf:type owl:Class ;
+                 rdfs:subClassOf :Incident ;
+                 rdfs:comment "Serious incident of a medical device." ;
+                 rdfs:label "Serious incident" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#Sex
+:Sex rdf:type owl:Class ;
+     rdfs:comment "Biological sex." ;
+     rdfs:label "Sex" ;
+     rdfs:sameAs "https://d-nb.info/standards/elementset/gnd#Gender" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#SingleUseDevice
+:SingleUseDevice rdf:type owl:Class ;
+                 rdfs:subClassOf :Device ;
+                 rdfs:comment "A device that can only be used once." ;
+                 rdfs:label "Single user device" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#SoftwareRisk
+:SoftwareRisk rdf:type owl:Class ;
+              rdfs:subClassOf :Risk ;
+              rdfs:comment "Risk of malfunctioning due to a sofware issue." ;
+              rdfs:label "Software risk" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#UserNotice
+:UserNotice rdf:type owl:Class ;
+            rdfs:subClassOf :CorrectiveAction ;
+            rdfs:comment "The users are notified about the issue." ;
+            rdfs:label "User notice" .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#AFMPS
+:AFMPS rdf:type owl:NamedIndividual ,
+                :CompetentAuthority ;
+       rdfs:label "Agence fédérale des médicaments et des produits de santé" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#ANSM
+:ANSM rdf:type owl:NamedIndividual ,
+               :CompetentAuthority ;
+      rdfs:label "Agence nationale de sécurité du médicament" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#Belgium
+:Belgium rdf:type owl:NamedIndividual ,
+                  :Country ;
+         rdfs:comment "Belgium Country" ;
+         rdfs:label "Belgium" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#BfArM
+:BfArM rdf:type owl:NamedIndividual ,
+                :CompetentAuthority ;
+       rdfs:label "Bundesinstitut für Arzneimittel und Medizinprodukte" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#ClassC
+:ClassC rdf:type owl:NamedIndividual ,
+                 :RiskClass ;
+        rdfs:comment "Risk clasified into the class C." ;
+        rdfs:label "Risk class C" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#ClassD
+:ClassD rdf:type owl:NamedIndividual ,
+                 :RiskClass ;
+        rdfs:comment "Risk clasified into the class D." ;
+        rdfs:label "Risk class D" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#ClassIII
+:ClassIII rdf:type owl:NamedIndividual ,
+                   :RiskClass ;
+          rdfs:comment "Risk clasified into the class III." ;
+          rdfs:label "Risk class III" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#ClassIIa
+:ClassIIa rdf:type owl:NamedIndividual ,
+                   :RiskClass ;
+          rdfs:comment "Risk clasified into the class II a." ;
+          rdfs:label "Risk class II a" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#ClassIIb
+:ClassIIb rdf:type owl:NamedIndividual ,
+                   :RiskClass ;
+          rdfs:comment "Risk clasified into the class II b." ;
+          rdfs:label "Risk class II b" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#ClosedStatus
+:ClosedStatus rdf:type owl:NamedIndividual ,
+                       :CorrectiveActionStatus ;
+              rdfs:comment "The corrective action is finished, is closed." ;
+              rdfs:label "Closed status" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#Critical
+:Critical rdf:type owl:NamedIndividual ,
+                   :RiskSeverity ;
+          rdfs:comment "The risk is critical." ;
+          rdfs:label "Critical risk" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#DEV-001
+:DEV-001 rdf:type owl:NamedIndividual ,
+                  :ImplantableActiveDevice ;
+         :inRegulatoryFrame :MDR ;
+         :manufacturedBy :MAN-001 ;
+         :ofRiskClass :ClassIII ;
+         :dvIntendedPurpose "Ventricular assist device for end-stage heart failure" ;
+         :dvIsActive "true"^^xsd:boolean ;
+         :dvIsImplantable "true"^^xsd:boolean ;
+         :dvIsIvd "false"^^xsd:boolean ;
+         :dvIsReusable "false"^^xsd:boolean ;
+         :dvUdiDi "(01)00380740009095" ;
+         rdfs:label "HeartMate 3 LVAD" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#DEV-002
+:DEV-002 rdf:type owl:NamedIndividual ,
+                  :ActiveImplant ;
+         :inRegulatoryFrame :MDR ;
+         :manufacturedBy :MAN-001 ;
+         :ofRiskClass :ClassIII ;
+         :dvIntendedPurpose "Leadless cardiac pacemaker for atrioventricular synchrony" ;
+         :dvIsActive "true"^^xsd:boolean ;
+         :dvIsImplantable "true"^^xsd:boolean ;
+         :dvIsIvd "false"^^xsd:boolean ;
+         :dvIsReusable "false"^^xsd:boolean ;
+         :dvUdiDi "(01)00380740009112" ;
+         rdfs:label "Micra AV Transcatheter Pacing System" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#DEV-003
+:DEV-003 rdf:type owl:NamedIndividual ,
+                  :ImplantableDevice ;
+         :inRegulatoryFrame :MDR ;
+         :manufacturedBy :MAN-002 ;
+         :ofRiskClass :ClassIII ;
+         :dvIntendedPurpose "Transcatheter aortic valve replacement (TAVI)" ;
+         :dvIsActive "false"^^xsd:boolean ;
+         :dvIsImplantable "true"^^xsd:boolean ;
+         :dvIsIvd "false"^^xsd:boolean ;
+         :dvIsReusable "false"^^xsd:boolean ;
+         :dvUdiDi "(01)00800002222291" ;
+         rdfs:label "Portico Transcatheter Heart Valve" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#DEV-004
+:DEV-004 rdf:type owl:NamedIndividual ,
+                  :ImplantableActiveDevice ;
+         :inRegulatoryFrame :MDR ;
+         :manufacturedBy :MAN-006 ;
+         :ofRiskClass :ClassIIb ;
+         :dvIntendedPurpose "Drug-eluting coronary stent" ;
+         :dvIsActive "false"^^xsd:boolean ;
+         :dvIsImplantable "true"^^xsd:boolean ;
+         :dvIsIvd "false"^^xsd:boolean ;
+         :dvIsReusable "false"^^xsd:boolean ;
+         :dvUdiDi "(01)08714729002817" ;
+         rdfs:label "SYNERGY Stent System" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#DEV-005
+:DEV-005 rdf:type owl:NamedIndividual ,
+                  :ActiveImplant ;
+         :inRegulatoryFrame :MDR ;
+         :manufacturedBy :MAN-006 ;
+         :ofRiskClass :ClassIII ;
+         :dvIntendedPurpose "Cardiac resynchronization therapy lead" ;
+         :dvIsActive "true"^^xsd:boolean ;
+         :dvIsImplantable "true"^^xsd:boolean ;
+         :dvIsIvd "false"^^xsd:boolean ;
+         :dvIsReusable "false"^^xsd:boolean ;
+         :dvUdiDi "(01)08714729004873" ;
+         rdfs:label "ACUITY X4 Quadripolar LV Lead" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#DEV-006
+:DEV-006 rdf:type owl:NamedIndividual ,
+                  :SingleUseDevice ;
+         :inRegulatoryFrame :MDR ;
+         :manufacturedBy :MAN-004 ;
+         :ofRiskClass :ClassIIb ;
+         :dvIntendedPurpose "Peripheral artery drug-coated angioplasty balloon" ;
+         :dvIsActive "false"^^xsd:boolean ;
+         :dvIsImplantable "false"^^xsd:boolean ;
+         :dvIsIvd "false"^^xsd:boolean ;
+         :dvIsReusable "false"^^xsd:boolean ;
+         :dvUdiDi "(01)08718998000001" ;
+         rdfs:label "STELLAREX Drug-Coated Balloon" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#DEV-007
+:DEV-007 rdf:type owl:NamedIndividual ,
+                  :ActiveDevice ;
+         :inRegulatoryFrame :MDR ;
+         :manufacturedBy :MAN-003 ;
+         :ofRiskClass :ClassIIa ;
+         :dvIntendedPurpose "Diagnostic ultrasound imaging system" ;
+         :dvIsActive "true"^^xsd:boolean ;
+         :dvIsImplantable "false"^^xsd:boolean ;
+         :dvIsIvd "false"^^xsd:boolean ;
+         :dvIsReusable "true"^^xsd:boolean ;
+         :dvUdiDi "(01)04054839450001" ;
+         rdfs:label "ACUSON Sequoia Ultrasound" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#DEV-008
+:DEV-008 rdf:type owl:NamedIndividual ,
+                  :ActiveDevice ;
+         :inRegulatoryFrame :MDR ;
+         :manufacturedBy :MAN-003 ;
+         :ofRiskClass :ClassIIa ;
+         :dvIntendedPurpose "Magnetic resonance imaging system 3T" ;
+         :dvIsActive "true"^^xsd:boolean ;
+         :dvIsImplantable "false"^^xsd:boolean ;
+         :dvIsIvd "false"^^xsd:boolean ;
+         :dvIsReusable "true"^^xsd:boolean ;
+         :dvUdiDi "(01)04054839460002" ;
+         rdfs:label "MAGNETOM Vida MRI System" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#DEV-009
+:DEV-009 rdf:type owl:NamedIndividual ,
+                  :ImplantableDevice ;
+         :inRegulatoryFrame :MDR ;
+         :manufacturedBy :MAN-010 ;
+         :ofRiskClass :ClassIII ;
+         :dvIntendedPurpose "Total knee arthroplasty implant system" ;
+         :dvIsActive "false"^^xsd:boolean ;
+         :dvIsImplantable "true"^^xsd:boolean ;
+         :dvIsIvd "false"^^xsd:boolean ;
+         :dvIsReusable "false"^^xsd:boolean ;
+         :dvUdiDi "(01)07612345001001" ;
+         rdfs:label "Persona Knee System" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#DEV-010
+:DEV-010 rdf:type owl:NamedIndividual ,
+                  :ImplantableDevice ;
+         :inRegulatoryFrame :MDR ;
+         :manufacturedBy :MAN-007 ;
+         :ofRiskClass :ClassIII ;
+         :dvIntendedPurpose "Ceramic-on-ceramic total hip replacement" ;
+         :dvIsActive "false"^^xsd:boolean ;
+         :dvIsImplantable "true"^^xsd:boolean ;
+         :dvIsIvd "false"^^xsd:boolean ;
+         :dvIsReusable "false"^^xsd:boolean ;
+         :dvUdiDi "(01)09876543002002" ;
+         rdfs:label "TRITON Total Hip System" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#DEV-011
+:DEV-011 rdf:type owl:NamedIndividual ,
+                  :ActiveImplant ;
+         :inRegulatoryFrame :MDR ;
+         :manufacturedBy :MAN-011 ;
+         :ofRiskClass :ClassIII ;
+         :dvIntendedPurpose "Sustained-release fluocinolone acetonide ocular implant" ;
+         :dvIsActive "false"^^xsd:boolean ;
+         :dvIsImplantable "true"^^xsd:boolean ;
+         :dvIsIvd "false"^^xsd:boolean ;
+         :dvIsReusable "false"^^xsd:boolean ;
+         :dvUdiDi "(01)05391520001011" ;
+         rdfs:label "Iluvien Intravitreal Implant" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#DEV-012
+:DEV-012 rdf:type owl:NamedIndividual ,
+                  :ActiveImplant ;
+         :inRegulatoryFrame :MDR ;
+         :manufacturedBy :MAN-008 ;
+         :ofRiskClass :ClassIII ;
+         :dvIntendedPurpose "Cardiac resynchronization therapy with defibrillation" ;
+         :dvIsActive "true"^^xsd:boolean ;
+         :dvIsImplantable "true"^^xsd:boolean ;
+         :dvIsIvd "false"^^xsd:boolean ;
+         :dvIsReusable "false"^^xsd:boolean ;
+         :dvUdiDi "(01)04012099001012" ;
+         rdfs:label "Viva Cardiac Resynchronization Defibrillator" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#DEV-013
+:DEV-013 rdf:type owl:NamedIndividual ,
+                  :ActiveDevice ;
+         :inRegulatoryFrame :MDR ;
+         :manufacturedBy :MAN-012 ;
+         :ofRiskClass :ClassIIb ;
+         :dvIntendedPurpose "ICU mechanical ventilator with pressure and volume modes" ;
+         :dvIsActive "true"^^xsd:boolean ;
+         :dvIsImplantable "false"^^xsd:boolean ;
+         :dvIsIvd "false"^^xsd:boolean ;
+         :dvIsReusable "true"^^xsd:boolean ;
+         :dvUdiDi "(01)04046539001013" ;
+         rdfs:label "ATERA Mechanical Ventilator" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#DEV-014
+:DEV-014 rdf:type owl:NamedIndividual ,
+                  :ActiveDevice ;
+         :inRegulatoryFrame :MDR ;
+         :manufacturedBy :MAN-004 ;
+         :ofRiskClass :ClassIIa ;
+         :dvIntendedPurpose "Handheld point-of-care ultrasound probe" ;
+         :dvIsActive "true"^^xsd:boolean ;
+         :dvIsImplantable "false"^^xsd:boolean ;
+         :dvIsIvd "false"^^xsd:boolean ;
+         :dvIsReusable "true"^^xsd:boolean ;
+         :dvUdiDi "(01)08718998001014" ;
+         rdfs:label "Lumify Portable Ultrasound" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#DEV-015
+:DEV-015 rdf:type owl:NamedIndividual ,
+                  :ActiveDevice ;
+         :inRegulatoryFrame :MDR ;
+         :manufacturedBy :MAN-013 ;
+         :ofRiskClass :ClassIIb ;
+         :dvIntendedPurpose "High-volume online hemodiafiltration machine" ;
+         :dvIsActive "true"^^xsd:boolean ;
+         :dvIsImplantable "false"^^xsd:boolean ;
+         :dvIsIvd "false"^^xsd:boolean ;
+         :dvIsReusable "true"^^xsd:boolean ;
+         :dvUdiDi "(01)04547597001015" ;
+         rdfs:label "Hemodialysis Machine 5008S" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#DEV-016
+:DEV-016 rdf:type owl:NamedIndividual ,
+                  :InVitroDiagnosticDevice ;
+         :inRegulatoryFrame :IVDR ;
+         :manufacturedBy :MAN-005 ;
+         :ofRiskClass :ClassC ;
+         :dvIntendedPurpose "Automated immunoassay analyzer for clinical laboratory" ;
+         :dvIsActive "true"^^xsd:boolean ;
+         :dvIsImplantable "false"^^xsd:boolean ;
+         :dvIsIvd "true"^^xsd:boolean ;
+         :dvIsReusable "true"^^xsd:boolean ;
+         :dvUdiDi "(01)04015630001016" ;
+         rdfs:label "cobas e 801 Immunoassay Analyzer" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#DEV-017
+:DEV-017 rdf:type owl:NamedIndividual ,
+                  :InVitroDiagnosticDevice ;
+         :inRegulatoryFrame :IVDR ;
+         :manufacturedBy :MAN-005 ;
+         :ofRiskClass :ClassC ;
+         :dvIntendedPurpose "Molecular diagnostic test for SARS-CoV-2 detection" ;
+         :dvIsActive "false"^^xsd:boolean ;
+         :dvIsImplantable "false"^^xsd:boolean ;
+         :dvIsIvd "true"^^xsd:boolean ;
+         :dvIsReusable "false"^^xsd:boolean ;
+         :dvUdiDi "(01)04015630001017" ;
+         rdfs:label "cobas SARS-CoV-2 RT-PCR Test" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#DEV-018
+:DEV-018 rdf:type owl:NamedIndividual ,
+                  :InVitroDiagnosticDevice ;
+         :inRegulatoryFrame :IVDR ;
+         :manufacturedBy :MAN-015 ;
+         :ofRiskClass :ClassD ;
+         :dvIntendedPurpose "Combined HIV Ag/Ab detection assay" ;
+         :dvIsActive "false"^^xsd:boolean ;
+         :dvIsImplantable "false"^^xsd:boolean ;
+         :dvIsIvd "true"^^xsd:boolean ;
+         :dvIsReusable "false"^^xsd:boolean ;
+         :dvUdiDi "(01)03760027001018" ;
+         rdfs:label "VIDAS HIV DUO Ultra" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#DEV-019
+:DEV-019 rdf:type owl:NamedIndividual ,
+                  :InVitroDiagnosticDevice ;
+         :inRegulatoryFrame :IVDR ;
+         :manufacturedBy :MAN-014 ;
+         :ofRiskClass :ClassC ;
+         :dvIntendedPurpose "Urine-based prostate cancer diagnosis assay" ;
+         :dvIsActive "false"^^xsd:boolean ;
+         :dvIsImplantable "false"^^xsd:boolean ;
+         :dvIsIvd "true"^^xsd:boolean ;
+         :dvIsReusable "false"^^xsd:boolean ;
+         :dvUdiDi "(01)07000087001019" ;
+         rdfs:label "PROGENSA PCA3 Assay" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#DEV-020
+:DEV-020 rdf:type owl:NamedIndividual ,
+                  :InVitroDiagnosticDevice ;
+         :inRegulatoryFrame :IVDR ;
+         :manufacturedBy :MAN-002 ;
+         :ofRiskClass :ClassD ;
+         :dvIntendedPurpose "Non-invasive prenatal testing (NIPT) for aneuploidies" ;
+         :dvIsActive "false"^^xsd:boolean ;
+         :dvIsImplantable "false"^^xsd:boolean ;
+         :dvIsIvd "true"^^xsd:boolean ;
+         :dvIsReusable "false"^^xsd:boolean ;
+         :dvUdiDi "(01)00800002001020" ;
+         rdfs:label "Harmony Prenatal Test" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#DEV-021
+:DEV-021 rdf:type owl:NamedIndividual ,
+                  :SelfTestDevice ;
+         :inRegulatoryFrame :IVDR ;
+         :manufacturedBy :MAN-009 ;
+         :ofRiskClass :ClassC ;
+         :dvIntendedPurpose "Continuous glucose monitor for patients with diabetes" ;
+         :dvIsActive "true"^^xsd:boolean ;
+         :dvIsImplantable "false"^^xsd:boolean ;
+         :dvIsIvd "true"^^xsd:boolean ;
+         :dvIsReusable "true"^^xsd:boolean ;
+         :dvUdiDi "(01)07300000001021" ;
+         rdfs:label "OPTIGA Glucose Monitoring System" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#DEV-022
+:DEV-022 rdf:type owl:NamedIndividual ,
+                  :ActiveDevice ;
+         :inRegulatoryFrame :MDR ;
+         :manufacturedBy :MAN-009 ;
+         :ofRiskClass :ClassIIa ;
+         :dvIntendedPurpose "Portable patient monitor for vital signs" ;
+         :dvIsActive "true"^^xsd:boolean ;
+         :dvIsImplantable "false"^^xsd:boolean ;
+         :dvIsIvd "false"^^xsd:boolean ;
+         :dvIsReusable "true"^^xsd:boolean ;
+         :dvUdiDi "(01)07300000001022" ;
+         rdfs:label "BeneVision N1 Patient Monitor" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#DEV-023
+:DEV-023 rdf:type owl:NamedIndividual ,
+                  :ActiveImplant ;
+         :inRegulatoryFrame :MDR ;
+         :manufacturedBy :MAN-008 ;
+         :ofRiskClass :ClassIII ;
+         :dvIntendedPurpose "Active cochlear implant for sensorineural hearing loss" ;
+         :dvIsActive "true"^^xsd:boolean ;
+         :dvIsImplantable "true"^^xsd:boolean ;
+         :dvIsIvd "false"^^xsd:boolean ;
+         :dvIsReusable "false"^^xsd:boolean ;
+         :dvUdiDi "(01)04012099001023" ;
+         rdfs:label "Tivoli II Cochlear Implant" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#DEV-024
+:DEV-024 rdf:type owl:NamedIndividual ,
+                  :ActiveDevice ;
+         :inRegulatoryFrame :MDR ;
+         :manufacturedBy :MAN-002 ;
+         :ofRiskClass :ClassIIb ;
+         :dvIntendedPurpose "Large volume infusion pump with drug library" ;
+         :dvIsActive "true"^^xsd:boolean ;
+         :dvIsImplantable "false"^^xsd:boolean ;
+         :dvIsIvd "false"^^xsd:boolean ;
+         :dvIsReusable "true"^^xsd:boolean ;
+         :dvUdiDi "(01)00800002001024" ;
+         rdfs:label "Infusion Pump Plum 360" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#DEV-025
+:DEV-025 rdf:type owl:NamedIndividual ,
+                  :ImplantableDevice ;
+         :inRegulatoryFrame :MDR ;
+         :manufacturedBy :MAN-011 ;
+         :ofRiskClass :ClassIII ;
+         :dvIntendedPurpose "Transcatheter mitral valve replacement system" ;
+         :dvIsActive "false"^^xsd:boolean ;
+         :dvIsImplantable "true"^^xsd:boolean ;
+         :dvIsIvd "false"^^xsd:boolean ;
+         :dvIsReusable "false"^^xsd:boolean ;
+         :dvUdiDi "(01)05391520001025" ;
+         rdfs:label "ValveXpert Transcatheter Mitral Valve" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#Denmark
+:Denmark rdf:type owl:NamedIndividual ,
+                  :Country ;
+         rdfs:comment "Denmark Country" ;
+         rdfs:label "Denmark" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#DeviceFailure
+:DeviceFailure rdf:type owl:NamedIndividual ,
+                        :RiskCategory ;
+               rdfs:comment "General or partial failure of the device." ;
+               rdfs:label "Device failure" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#DevicePerformance
+:DevicePerformance rdf:type owl:NamedIndividual ,
+                            :RiskCategory ;
+                   rdfs:comment "The performance of the device is below that required." ;
+                   rdfs:label "Device performance" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#DeviceSafety
+:DeviceSafety rdf:type owl:NamedIndividual ,
+                       :RiskCategory ;
+              rdfs:comment "The device is not safe for use." ;
+              rdfs:label "Device safety" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#DiagnosticError
+:DiagnosticError rdf:type owl:NamedIndividual ,
+                          :RiskCategory ;
+                 rdfs:comment "The diagnostic result provided by the device is not correct." ;
+                 rdfs:label "Diagnostic error" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#EU-Wide
+:EU-Wide rdf:type owl:NamedIndividual ,
+                  :GeographicalLocation ;
+         rdfs:comment "All the EU countries" ;
+         rdfs:label "EU Wide" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#FSCA-001
+:FSCA-001 rdf:type owl:NamedIndividual ,
+                   :SafetyAlert ;
+          :appliesTo :INC-001 ;
+          :doneAtGeographicalLocation :EU-Wide ;
+          :hasStatus :OpenStatus ;
+          :caActionDate "2024-02-01"^^xsd:date ;
+          :caDevicesAffected 850 ;
+          :caEudamedRef "EU-FSCA-2024-000001" ;
+          :caScope "All HeartMate 3 LVAD units implanted since 2020" ;
+          rdfs:comment "Safety alert issued to all implanting centres regarding anticoagulation protocol update for HeartMate 3 to reduce device thrombosis risk. INR target range revised to 2.0–3." ;
+          rdfs:label "Corrective Action 1" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#FSCA-002
+:FSCA-002 rdf:type owl:NamedIndividual ,
+                   :Recall ;
+          :appliesTo :INC-002 ;
+          :doneAtGeographicalLocation :EU-Wide ,
+                                      :UK ;
+          :hasStatus :ClosedStatus ;
+          :caActionDate "2024-02-28"^^xsd:date ;
+          :caClosureDate "2024-05-31"^^xsd:date ;
+          :caDevicesAffected 1240 ;
+          :caEudamedRef "EU-FSCA-2024-000002" ;
+          :caScope "Micra AV lots manufactured between 2022-09 and 2023-03" ;
+          rdfs:comment "Voluntary recall of affected Micra AV lots due to premature battery depletion. Replacement units provided. 97% of affected devices successfully replaced." ;
+          rdfs:label "Corrective Action 2" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#FSCA-003
+:FSCA-003 rdf:type owl:NamedIndividual ,
+                   :InSituCorrection ;
+          :appliesTo :INC-003 ;
+          :doneAtGeographicalLocation :EU-Wide ;
+          :hasStatus :ClosedStatus ;
+          :caActionDate "2024-03-15"^^xsd:date ;
+          :caClosureDate "2024-06-30"^^xsd:date ;
+          :caDevicesAffected 320 ;
+          :caEudamedRef "EU-FSCA-2024-000003" ;
+          :caScope "Portico THV sizes 23mm and 25mm from lots before 2023-11" ;
+          rdfs:comment "Enhanced deployment training and updated IFU for Portico valve implantation technique. New implantation checklist mandatory for all TAVI centres." ;
+          rdfs:label "Corrective Action 3" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#FSCA-004
+:FSCA-004 rdf:type owl:NamedIndividual ,
+                   :SafetyAlert ;
+          :appliesTo :INC-005 ;
+          :doneAtGeographicalLocation :EU-Wide ;
+          :hasStatus :OpenStatus ;
+          :caActionDate "2024-04-10"^^xsd:date ;
+          :caDevicesAffected 2100 ;
+          :caEudamedRef "EU-FSCA-2024-000004" ;
+          :caScope "All ACUITY X4 quadripolar LV leads" ;
+          rdfs:comment "Safety communication to implanting cardiologists regarding optimal fixation technique for ACUITY X4 lead. Enhanced fluoroscopy verification protocol at implantation." ;
+          rdfs:label "Corrective Action 4" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#FSCA-005
+:FSCA-005 rdf:type owl:NamedIndividual ,
+                   :InSituCorrection ;
+          :appliesTo :INC-007 ;
+          :doneAtGeographicalLocation :EU-Wide ,
+                                      :Switzerland ;
+          :hasStatus :ClosedStatus ;
+          :caActionDate "2024-05-20"^^xsd:date ;
+          :caClosureDate "2024-09-30"^^xsd:date ;
+          :caDevicesAffected 780 ;
+          :caEudamedRef "EU-FSCA-2024-000005" ;
+          :caScope "Persona Knee tibial inserts with lot numbers PN-2019-* to PN-2021-*" ;
+          rdfs:comment "Enhanced surveillance programme: annual DEXA scan and serum particle monitoring for patients with affected tibial inserts. Patients contacted individually." ;
+          rdfs:label "Corrective Action 5" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#FSCA-006
+:FSCA-006 rdf:type owl:NamedIndividual ,
+                   :Recall ;
+          :appliesTo :INC-008 ;
+          :doneAtGeographicalLocation :EU-Wide ;
+          :hasStatus :OpenStatus ;
+          :caActionDate "2024-05-30"^^xsd:date ;
+          :caDevicesAffected 540 ;
+          :caEudamedRef "EU-FSCA-2024-000006" ;
+          :caScope "TRITON Total Hip ceramic-on-ceramic 28mm heads from lots TH-2020-* and TH-2021-*" ;
+          rdfs:comment "Urgent safety recall due to elevated metal ion levels. Revision surgery recommended for patients with serum cobalt >7 ppb or symptomatic ALTR. Replacement implants provided." ;
+          rdfs:label "Corrective Action 6" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#FSCA-007
+:FSCA-007 rdf:type owl:NamedIndividual ,
+                   :UserNotice ;
+          :appliesTo :INC-009 ;
+          :doneAtGeographicalLocation :EU-Wide ,
+                                      :UK ;
+          :hasStatus :ClosedStatus ;
+          :caActionDate "2024-05-25"^^xsd:date ;
+          :caClosureDate "2024-07-31"^^xsd:date ;
+          :caDevicesAffected 4300 ;
+          :caEudamedRef "EU-FSCA-2024-000007" ;
+          :caScope "All Viva CRT-D devices" ;
+          rdfs:comment "Urgent safety notice regarding MRI scanning protocol. Updated MRI-conditional guidelines issued. Mandatory reprogramming required before any MRI scan. Programmer software update v3.2 released." ;
+          rdfs:label "Corrective Action 7" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#FSCA-008
+:FSCA-008 rdf:type owl:NamedIndividual ,
+                   :Recall ;
+          :appliesTo :INC-010 ;
+          :doneAtGeographicalLocation :EU-Wide ;
+          :hasStatus :ClosedStatus ;
+          :caActionDate "2024-06-05"^^xsd:date ;
+          :caClosureDate "2024-08-15"^^xsd:date ;
+          :caDevicesAffected 180 ;
+          :caEudamedRef "EU-FSCA-2024-000008" ;
+          :caScope "ATERA ventilators with software version 2.1.3" ;
+          rdfs:comment "Software recall: mandatory update to version 2.2.0 resolving FiO2 calibration error. Biomedical engineers visited all affected units within 14 days. Field service documentation required." ;
+          rdfs:label "Corrective Action 8" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#FSCA-009
+:FSCA-009 rdf:type owl:NamedIndividual ,
+                   :UserNotice ;
+          :appliesTo :INC-011 ;
+          :doneAtGeographicalLocation :EU-Wide ;
+          :hasStatus :ClosedStatus ;
+          :caActionDate "2024-06-20"^^xsd:date ;
+          :caClosureDate "2024-09-30"^^xsd:date ;
+          :caDevicesAffected 620 ;
+          :caEudamedRef "EU-FSCA-2024-000009" ;
+          :caScope "All cobas e 801 immunoassay analysers" ;
+          rdfs:comment "Customer field notification regarding biotin interference in TSH assay. Updated sample preparation protocol and interference screening algorithm released via software update 4.1.2." ;
+          rdfs:label "Corrective Action 9" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#FSCA-010
+:FSCA-010 rdf:type owl:NamedIndividual ,
+                   :Recall ;
+          :appliesTo :INC-012 ;
+          :doneAtGeographicalLocation :EU-Wide ,
+                                      :Iceland ,
+                                      :Norway ;
+          :hasStatus :ClosedStatus ;
+          :caActionDate "2024-06-30"^^xsd:date ;
+          :caClosureDate "2024-08-31"^^xsd:date ;
+          :caDevicesAffected 12500 ;
+          :caEudamedRef "EU-FSCA-2024-000010" ;
+          :caScope "cobas SARS-CoV-2 RT-PCR reagent lot numbers CV-2024-0312 to CV-2024-0318" ;
+          rdfs:comment "Immediate quarantine and replacement of affected reagent lots. Reflex testing protocol issued. All positive results from affected lots to be re-confirmed. New primer design covering BA.2.86 released." ;
+          rdfs:label "Corrective Action 10" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#FSCA-011
+:FSCA-011 rdf:type owl:NamedIndividual ,
+                   :InSituCorrection ;
+          :appliesTo :INC-014 ;
+          :doneAtGeographicalLocation :EU-Wide ;
+          :hasStatus :OpenStatus ;
+          :caActionDate "2024-08-01"^^xsd:date ;
+          :caDevicesAffected 3200 ;
+          :caEudamedRef "EU-FSCA-2024-000011" ;
+          :caScope "All OPTIGA CGM sensors from manufacturing site GE-SGP-2" ;
+          rdfs:comment "Enhanced calibration protocol issued. Firmware update v1.8.5 mandatory improving temperature compensation algorithm. Patients instructed to perform confirmatory finger-stick at glucose readings <4.5 or >13.9 mmol/L." ;
+          rdfs:label "Corrective Action 11" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#FSCA-012
+:FSCA-012 rdf:type owl:NamedIndividual ,
+                   :Recall ;
+          :appliesTo :INC-015 ;
+          :doneAtGeographicalLocation :EU-Wide ,
+                                      :Norway ,
+                                      :UK ;
+          :hasStatus :ClosedStatus ;
+          :caActionDate "2024-08-20"^^xsd:date ;
+          :caClosureDate "2024-10-31"^^xsd:date ;
+          :caDevicesAffected 2870 ;
+          :caEudamedRef "EU-FSCA-2024-000012" ;
+          :caScope "Plum 360 infusion pumps with drug library version 4.2.1" ;
+          rdfs:comment "Urgent recall and remote software update. Drug library version 4.3.0 deployed correcting decimal point error. All units verified by biomedical engineering before return to clinical use." ;
+          rdfs:label "Corrective Action 12" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#FSCA-013
+:FSCA-013 rdf:type owl:NamedIndividual ,
+                   :SafetyAlert ;
+          :appliesTo :INC-016 ;
+          :doneAtGeographicalLocation :EU-Wide ;
+          :hasStatus :OpenStatus ;
+          :caActionDate "2024-09-10"^^xsd:date ;
+          :caDevicesAffected 420 ;
+          :caEudamedRef "EU-FSCA-2024-000013" ;
+          :caScope "All HeartMate 3 LVAD units with outflow graft lot OG-2022-*" ;
+          rdfs:comment "Safety communication regarding outflow graft kinking risk. Updated surgical technique for graft routing issued. Mandatory follow-up CT at 6 months for patients with affected lot numbers." ;
+          rdfs:label "Corrective Action 13" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#FSCA-014
+:FSCA-014 rdf:type owl:NamedIndividual ,
+                   :UserNotice ;
+          :appliesTo :INC-017 ;
+          :doneAtGeographicalLocation :EU-Wide ;
+          :hasStatus :ClosedStatus ;
+          :caActionDate "2024-09-25"^^xsd:date ;
+          :caClosureDate "2024-12-31"^^xsd:date ;
+          :caDevicesAffected 1100 ;
+          :caEudamedRef "EU-FSCA-2024-000014" ;
+          :caScope "All Iluvien intravitreal implants" ;
+          rdfs:comment "Updated IFU regarding post-operative infection prophylaxis protocol. Extended topical antibiotic course (14 days) mandatory post-insertion. Healthcare professionals notified via direct mail and implanting centre visits." ;
+          rdfs:label "Corrective Action 14" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#FSCA-015
+:FSCA-015 rdf:type owl:NamedIndividual ,
+                   :InSituCorrection ;
+          :appliesTo :INC-018 ;
+          :doneAtGeographicalLocation :EU-Wide ;
+          :hasStatus :OpenStatus ;
+          :caActionDate "2024-10-01"^^xsd:date ;
+          :caDevicesAffected 890 ;
+          :caEudamedRef "EU-FSCA-2024-000015" ;
+          :caScope "All 5008S hemodialysis machines with network connectivity module v2.x" ;
+          rdfs:comment "Security patch 3.0.1 mandatory deployment disabling unrestricted web interface access. Network segmentation guidance issued to hospital IT departments. Penetration test report provided to competent authorities." ;
+          rdfs:label "Corrective Action 15" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#Female
+:Female rdf:type owl:NamedIndividual ,
+                 :Sex ;
+        rdfs:comment "Female biological sex." ;
+        rdfs:label "Female" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#France
+:France rdf:type owl:NamedIndividual ,
+                 :Country ;
+        rdfs:comment "France Country" ;
+        rdfs:label "France" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#Germany
+:Germany rdf:type owl:NamedIndividual ,
+                  :Country ;
+         rdfs:comment "Germany Country" ;
+         rdfs:label "Germany" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#HPRA
+:HPRA rdf:type owl:NamedIndividual ,
+               :CompetentAuthority ;
+      rdfs:label "Health Products Regulatory Authority" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#High
+:High rdf:type owl:NamedIndividual ,
+               :OccurrenceProbability ;
+      rdfs:comment "The probability of something occurring is high." ;
+      rdfs:label "High probability" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#INC-001
+:INC-001 rdf:type owl:NamedIndividual ,
+                  :SeriousIncident ;
+         :affectsDevice :DEV-001 ;
+         :affectsPatientWithSex :Male ;
+         :involvesRisk :RSK-003 ;
+         :reportedAt :Germany ;
+         :reportedBy :MAN-001 ;
+         :incCorrectiveActionTaken "true"^^xsd:boolean ;
+         :incDetectionDate "2024-01-10"^^xsd:date ;
+         :incEudamedIncidentRef "EU-INC-2024-000001" ;
+         :incEventDate "2024-01-08"^^xsd:date ;
+         :incOutcome "Serious patient injury - embolic stroke" ;
+         :incPatientAge 58 ;
+         :incReportDate "2024-01-15"^^xsd:date ;
+         rdfs:comment "Patient implanted with HeartMate 3 LVAD developed ischemic stroke 6 months post-implant. Device thrombus confirmed by echocardiography." ;
+         rdfs:label "Incident 1" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#INC-002
+:INC-002 rdf:type owl:NamedIndividual ,
+                  :SeriousIncident ;
+         :affectsDevice :DEV-002 ;
+         :affectsPatientWithSex :Female ;
+         :involvesRisk :RSK-009 ;
+         :reportedAt :France ;
+         :reportedBy :MAN-001 ;
+         :incCorrectiveActionTaken "true"^^xsd:boolean ;
+         :incDetectionDate "2024-02-01"^^xsd:date ;
+         :incEudamedIncidentRef "EU-INC-2024-000002" ;
+         :incEventDate "2024-01-29"^^xsd:date ;
+         :incOutcome "Device malfunction - premature battery depletion" ;
+         :incPatientAge 72 ;
+         :incReportDate "2024-02-03"^^xsd:date ;
+         rdfs:comment "Micra AV pacemaker reached elective replacement indicator 14 months earlier than expected longevity specification." ;
+         rdfs:label "Incident 2" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#INC-003
+:INC-003 rdf:type owl:NamedIndividual ,
+                  :SeriousIncident ;
+         :affectsDevice :DEV-003 ;
+         :affectsPatientWithSex :Male ;
+         :involvesRisk :RSK-005 ;
+         :reportedAt :Italy ;
+         :reportedBy :MAN-002 ;
+         :incCorrectiveActionTaken "true"^^xsd:boolean ;
+         :incDetectionDate "2024-02-18"^^xsd:date ;
+         :incEudamedIncidentRef "EU-INC-2024-000003" ;
+         :incEventDate "2024-02-15"^^xsd:date ;
+         :incOutcome "Surgical intervention required - valve re-anchoring" ;
+         :incPatientAge 67 ;
+         :incReportDate "2024-02-20"^^xsd:date ;
+         rdfs:comment "Portico valve showed paravalvular leak grade III due to partial migration 2 weeks post-TAVI procedure." ;
+         rdfs:label "Incident 3" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#INC-004
+:INC-004 rdf:type owl:NamedIndividual ,
+                  :SeriousIncident ;
+         :affectsDevice :DEV-004 ;
+         :affectsPatientWithSex :Female ;
+         :involvesRisk :RSK-002 ;
+         :reportedAt :Spain ;
+         :reportedBy :MAN-006 ;
+         :incCorrectiveActionTaken "false"^^xsd:boolean ;
+         :incDetectionDate "2024-03-03"^^xsd:date ;
+         :incEudamedIncidentRef "EU-INC-2024-000004" ;
+         :incEventDate "2024-02-28"^^xsd:date ;
+         :incOutcome "Device malfunction - stent fracture" ;
+         :incPatientAge 55 ;
+         :incReportDate "2024-03-05"^^xsd:date ;
+         rdfs:comment "SYNERGY stent fracture detected on angiography 18 months post-implant causing in-stent restenosis." ;
+         rdfs:label "Incident 4" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#INC-005
+:INC-005 rdf:type owl:NamedIndividual ,
+                  :SeriousIncident ;
+         :affectsDevice :DEV-005 ;
+         :affectsPatientWithSex :Male ;
+         :involvesRisk :RSK-006 ;
+         :reportedAt :Netherlands ;
+         :reportedBy :MAN-006 ;
+         :incCorrectiveActionTaken "true"^^xsd:boolean ;
+         :incDetectionDate "2024-03-16"^^xsd:date ;
+         :incEudamedIncidentRef "EU-INC-2024-000005" ;
+         :incEventDate "2024-03-12"^^xsd:date ;
+         :incOutcome "Surgical intervention required - lead extraction" ;
+         :incPatientAge 63 ;
+         :incReportDate "2024-03-18"^^xsd:date ;
+         rdfs:comment "ACUITY X4 lead dislodgement to right ventricle requiring fluoroscopy-guided repositioning." ;
+         rdfs:label "Incident 5" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#INC-006
+:INC-006 rdf:type owl:NamedIndividual ,
+                  :SeriousIncident ;
+         :affectsDevice :DEV-007 ;
+         :involvesRisk :RSK-001 ;
+         :reportedAt :Belgium ;
+         :reportedBy :MAN-003 ;
+         :incCorrectiveActionTaken "false"^^xsd:boolean ;
+         :incDetectionDate "2024-04-01"^^xsd:date ;
+         :incEudamedIncidentRef "EU-INC-2024-000006" ;
+         :incEventDate "2024-04-01"^^xsd:date ;
+         :incOutcome "Device malfunction - complete system failure" ;
+         :incReportDate "2024-04-02"^^xsd:date ;
+         rdfs:comment "ACUSON Sequoia ultrasound system froze mid-examination. Emergency shutdown required; patient examination incomplete." ;
+         rdfs:label "Incident 6" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#INC-007
+:INC-007 rdf:type owl:NamedIndividual ,
+                  :SeriousIncident ;
+         :affectsDevice :DEV-009 ;
+         :affectsPatientWithSex :Male ;
+         :involvesRisk :RSK-019 ;
+         :reportedAt :Sweden ;
+         :reportedBy :MAN-010 ;
+         :incCorrectiveActionTaken "true"^^xsd:boolean ;
+         :incDetectionDate "2024-04-10"^^xsd:date ;
+         :incEudamedIncidentRef "EU-INC-2024-000007" ;
+         :incEventDate "2024-03-01"^^xsd:date ;
+         :incOutcome "Patient harm - adverse tissue reaction" ;
+         :incPatientAge 70 ;
+         :incReportDate "2024-04-14"^^xsd:date ;
+         rdfs:comment "Persona knee tibial insert showing accelerated polyethylene wear with metallosis confirmed at 3-year revision surgery." ;
+         rdfs:label "Incident 7" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#INC-008
+:INC-008 rdf:type owl:NamedIndividual ,
+                  :SeriousIncident ;
+         :affectsDevice :DEV-010 ;
+         :affectsPatientWithSex :Female ;
+         :involvesRisk :RSK-020 ;
+         :reportedAt :Denmark ;
+         :reportedBy :MAN-007 ;
+         :incCorrectiveActionTaken "true"^^xsd:boolean ;
+         :incDetectionDate "2024-04-25"^^xsd:date ;
+         :incEudamedIncidentRef "EU-INC-2024-000008" ;
+         :incEventDate "2024-04-20"^^xsd:date ;
+         :incOutcome "Patient harm - cobalt toxicity" ;
+         :incPatientAge 65 ;
+         :incReportDate "2024-04-28"^^xsd:date ;
+         rdfs:comment "TRITON hip patient presented with elevated serum cobalt (18 ppb). Adverse local tissue reaction (ALTR) confirmed by MRI." ;
+         rdfs:label "Incident 8" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#INC-009
+:INC-009 rdf:type owl:NamedIndividual ,
+                  :SeriousIncident ;
+         :affectsDevice :DEV-012 ;
+         :affectsPatientWithSex :Male ;
+         :involvesRisk :RSK-013 ;
+         :reportedAt :Poland ;
+         :reportedBy :MAN-008 ;
+         :incCorrectiveActionTaken "true"^^xsd:boolean ;
+         :incDetectionDate "2024-05-04"^^xsd:date ;
+         :incEudamedIncidentRef "EU-INC-2024-000009" ;
+         :incEventDate "2024-05-03"^^xsd:date ;
+         :incOutcome "Inappropriate shock delivery" ;
+         :incPatientAge 68 ;
+         :incReportDate "2024-05-06"^^xsd:date ;
+         rdfs:comment "Viva CRT-D delivered inappropriate ICD therapy during MRI scan despite MRI-conditional programming. Patient experienced pain and syncope." ;
+         rdfs:label "Incident 9" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#INC-010
+:INC-010 rdf:type owl:NamedIndividual ,
+                  :SeriousIncident ;
+         :affectsDevice :DEV-013 ;
+         :involvesRisk :RSK-010 ;
+         :reportedAt :Germany ;
+         :reportedBy :MAN-012 ;
+         :incCorrectiveActionTaken "true"^^xsd:boolean ;
+         :incDetectionDate "2024-05-19"^^xsd:date ;
+         :incEudamedIncidentRef "EU-INC-2024-000010" ;
+         :incEventDate "2024-05-19"^^xsd:date ;
+         :incOutcome "Device malfunction - incorrect FiO2 delivery" ;
+         :incReportDate "2024-05-20"^^xsd:date ;
+         rdfs:comment "ATERA ventilator software version 2.1.3 delivered FiO2 6% lower than set value for patients in ARDS protocol. 3 patients affected." ;
+         rdfs:label "Incident 10" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#INC-011
+:INC-011 rdf:type owl:NamedIndividual ,
+                  :SeriousIncident ;
+         :affectsDevice :DEV-016 ;
+         :involvesRisk :RSK-014 ;
+         :reportedAt :France ;
+         :reportedBy :MAN-005 ;
+         :incCorrectiveActionTaken "true"^^xsd:boolean ;
+         :incDetectionDate "2024-06-01"^^xsd:date ;
+         :incEudamedIncidentRef "EU-INC-2024-000011" ;
+         :incEventDate "2024-05-28"^^xsd:date ;
+         :incOutcome "Diagnostic error - false positive TSH results" ;
+         :incReportDate "2024-06-03"^^xsd:date ;
+         rdfs:comment "cobas e 801 thyroid-stimulating hormone (TSH) assay reported false positive results (>10 mIU/L) in 12 euthyroid patients due to biotin interference." ;
+         rdfs:label "Incident 11" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#INC-012
+:INC-012 rdf:type owl:NamedIndividual ,
+                  :SeriousIncident ;
+         :affectsDevice :DEV-017 ;
+         :involvesRisk :RSK-015 ;
+         :reportedAt :Spain ;
+         :reportedBy :MAN-005 ;
+         :incCorrectiveActionTaken "true"^^xsd:boolean ;
+         :incDetectionDate "2024-06-13"^^xsd:date ;
+         :incEudamedIncidentRef "EU-INC-2024-000012" ;
+         :incEventDate "2024-06-10"^^xsd:date ;
+         :incOutcome "Diagnostic error - false negative SARS-CoV-2" ;
+         :incReportDate "2024-06-15"^^xsd:date ;
+         rdfs:comment "cobas SARS-CoV-2 assay failed to detect Omicron BA.2.86 subvariant in 7 samples confirmed positive by sequencing. Lot-specific issue." ;
+         rdfs:label "Incident 12" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#INC-013
+:INC-013 rdf:type owl:NamedIndividual ,
+                  :SeriousIncident ;
+         :affectsDevice :DEV-018 ;
+         :involvesRisk :RSK-015 ;
+         :reportedAt :Germany ;
+         :reportedBy :MAN-015 ;
+         :incCorrectiveActionTaken "false"^^xsd:boolean ;
+         :incDetectionDate "2024-06-29"^^xsd:date ;
+         :incEudamedIncidentRef "EU-INC-2024-000013" ;
+         :incEventDate "2024-06-25"^^xsd:date ;
+         :incOutcome "Diagnostic error - false negative HIV" ;
+         :incReportDate "2024-07-01"^^xsd:date ;
+         rdfs:comment "VIDAS HIV DUO Ultra failed to detect HIV-1 group O infection in seroconversion panel. Patient missed early treatment window." ;
+         rdfs:label "Incident 13" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#INC-014
+:INC-014 rdf:type owl:NamedIndividual ,
+                  :SeriousIncident ;
+         :affectsDevice :DEV-021 ;
+         :affectsPatientWithSex :Female ;
+         :involvesRisk :RSK-014 ;
+         :reportedAt :Netherlands ;
+         :reportedBy :MAN-009 ;
+         :incCorrectiveActionTaken "true"^^xsd:boolean ;
+         :incDetectionDate "2024-07-15"^^xsd:date ;
+         :incEudamedIncidentRef "EU-INC-2024-000014" ;
+         :incEventDate "2024-07-10"^^xsd:date ;
+         :incOutcome "Patient harm - hyperglycaemic event" ;
+         :incPatientAge 45 ;
+         :incReportDate "2024-07-18"^^xsd:date ;
+         rdfs:comment "OPTIGA CGM sensor reported glucose 3.8 mmol/L while laboratory reference showed 14.2 mmol/L. Patient delayed insulin administration." ;
+         rdfs:label "Incident 14" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#INC-015
+:INC-015 rdf:type owl:NamedIndividual ,
+                  :SeriousIncident ;
+         :affectsDevice :DEV-024 ;
+         :affectsPatientWithSex :Female ;
+         :involvesRisk :RSK-010 ;
+         :reportedAt :Italy ;
+         :reportedBy :MAN-002 ;
+         :incCorrectiveActionTaken "true"^^xsd:boolean ;
+         :incDetectionDate "2024-08-04"^^xsd:date ;
+         :incEudamedIncidentRef "EU-INC-2024-000015" ;
+         :incEventDate "2024-08-04"^^xsd:date ;
+         :incOutcome "Patient harm - drug overdose" ;
+         :incPatientAge 81 ;
+         :incReportDate "2024-08-05"^^xsd:date ;
+         rdfs:comment "Plum 360 infusion pump delivered 10x heparin dose due to software decimal point error in drug library version 4.2.1." ;
+         rdfs:label "Incident 15" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#INC-016
+:INC-016 rdf:type owl:NamedIndividual ,
+                  :SeriousIncident ;
+         :affectsDevice :DEV-001 ;
+         :affectsPatientWithSex :Male ;
+         :involvesRisk :RSK-004 ;
+         :reportedAt :UK ;
+         :reportedBy :MAN-001 ;
+         :incCorrectiveActionTaken "true"^^xsd:boolean ;
+         :incDetectionDate "2024-08-18"^^xsd:date ;
+         :incEudamedIncidentRef "EU-INC-2024-000016" ;
+         :incEventDate "2024-08-15"^^xsd:date ;
+         :incOutcome "Patient harm - haemolytic anaemia" ;
+         :incPatientAge 52 ;
+         :incReportDate "2024-08-20"^^xsd:date ;
+         rdfs:comment "HeartMate 3 patient developed severe haemolysis (LDH >2000 U/L) associated with outflow graft kinking confirmed by CT." ;
+         rdfs:label "Incident 16" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#INC-017
+:INC-017 rdf:type owl:NamedIndividual ,
+                  :SeriousIncident ;
+         :affectsDevice :DEV-011 ;
+         :affectsPatientWithSex :Female ;
+         :involvesRisk :RSK-007 ;
+         :reportedAt :France ;
+         :reportedBy :MAN-011 ;
+         :incCorrectiveActionTaken "true"^^xsd:boolean ;
+         :incDetectionDate "2024-08-30"^^xsd:date ;
+         :incEudamedIncidentRef "EU-INC-2024-000017" ;
+         :incEventDate "2024-08-25"^^xsd:date ;
+         :incOutcome "Surgical intervention - implant removal" ;
+         :incPatientAge 54 ;
+         :incReportDate "2024-09-02"^^xsd:date ;
+         rdfs:comment "Iluvien implant required surgical removal due to device-related endophthalmitis confirmed by vitreous culture." ;
+         rdfs:label "Incident 17" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#INC-018
+:INC-018 rdf:type owl:NamedIndividual ,
+                  :SeriousIncident ;
+         :affectsDevice :DEV-015 ;
+         :involvesRisk :RSK-018 ;
+         :reportedAt :Germany ;
+         :reportedBy :MAN-013 ;
+         :incCorrectiveActionTaken "true"^^xsd:boolean ;
+         :incDetectionDate "2024-09-14"^^xsd:date ;
+         :incEudamedIncidentRef "EU-INC-2024-000018" ;
+         :incEventDate "2024-09-12"^^xsd:date ;
+         :incOutcome "Cybersecurity incident - unauthorised access" ;
+         :incReportDate "2024-09-15"^^xsd:date ;
+         rdfs:comment "5008S hemodialysis machine web interface exposed to hospital internal network. Unauthorised session accessed alarm configuration." ;
+         rdfs:label "Incident 18" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#INC-019
+:INC-019 rdf:type owl:NamedIndividual ,
+                  :NearMissIncident ;
+         :affectsDevice :DEV-023 ;
+         :affectsPatientWithSex :Male ;
+         :involvesRisk :RSK-001 ;
+         :reportedAt :Sweden ;
+         :reportedBy :MAN-008 ;
+         :incCorrectiveActionTaken "false"^^xsd:boolean ;
+         :incDetectionDate "2024-09-30"^^xsd:date ;
+         :incEudamedIncidentRef "EU-INC-2024-000019" ;
+         :incEventDate "2024-09-28"^^xsd:date ;
+         :incOutcome "Near-miss - device not activated post-surgery" ;
+         :incPatientAge 71 ;
+         :incReportDate "2024-10-01"^^xsd:date ;
+         rdfs:comment "Tivoli II cochlear implant failed to respond to initial activation programming. Sound processor replacement resolved the issue." ;
+         rdfs:label "Incident 19" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#INC-020
+:INC-020 rdf:type owl:NamedIndividual ,
+                  :SeriousIncident ;
+         :affectsDevice :DEV-008 ;
+         :affectsPatientWithSex :Female ;
+         :involvesRisk :RSK-011 ;
+         :reportedAt :Belgium ;
+         :reportedBy :MAN-003 ;
+         :incCorrectiveActionTaken "false"^^xsd:boolean ;
+         :incDetectionDate "2024-10-12"^^xsd:date ;
+         :incEudamedIncidentRef "EU-INC-2024-000020" ;
+         :incEventDate "2024-10-10"^^xsd:date ;
+         :incOutcome "Patient harm - SAR heating injury" ;
+         :incPatientAge 38 ;
+         :incReportDate "2024-10-14"^^xsd:date ;
+         rdfs:comment "MAGNETOM Vida MRI caused localised skin burn (1st degree) at anterior electrode lead in patient with DBS system not declared prior to scan." ;
+         rdfs:label "Incident 20" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#IVDR
+:IVDR rdf:type owl:NamedIndividual ,
+               :RegulatoryFrame ;
+      rdfs:comment "Regulatory framework for in vitro diagnostics devices." ;
+      rdfs:label "In vitro diagnostics regulatory framework" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#Iceland
+:Iceland rdf:type owl:NamedIndividual ,
+                  :Country ;
+         rdfs:comment "Country of Iceland" ;
+         rdfs:label "Iceland" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#Ireland
+:Ireland rdf:type owl:NamedIndividual ,
+                  :Country ;
+         rdfs:comment "Ireland Country" ;
+         rdfs:label "Ireland" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#Italy
+:Italy rdf:type owl:NamedIndividual ,
+                :Country ;
+       rdfs:comment "Italy Country" ;
+       rdfs:label "Italy" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#Low
+:Low rdf:type owl:NamedIndividual ,
+              :OccurrenceProbability ;
+     rdfs:comment "The probability of something occurring is low." ;
+     rdfs:label "Low probability" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#MAN-001
+:MAN-001 rdf:type owl:NamedIndividual ,
+                  :Manufacturer ;
+         :locatedAt :Ireland ;
+         :reportsTo :HPRA ;
+         :mnAuthorizationNumber "IE/2017/001234" ;
+         :mnContactEmail "regulatory@medtronic.com" ;
+         :mnEudamedSrn "SRN-IE-MED-0001" ;
+         rdfs:label "Medtronic plc" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#MAN-002
+:MAN-002 rdf:type owl:NamedIndividual ,
+                  :Manufacturer ;
+         :locatedAt :Germany ;
+         :reportsTo :BfArM ;
+         :mnAuthorizationNumber "DE/2017/005678" ;
+         :mnContactEmail "regulatory@abbott.com" ;
+         :mnEudamedSrn "SRN-DE-MED-0002" ;
+         rdfs:label "Abbott Medical Devices" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#MAN-003
+:MAN-003 rdf:type owl:NamedIndividual ,
+                  :Manufacturer ;
+         :locatedAt :Germany ;
+         :reportsTo :BfArM ;
+         :mnAuthorizationNumber "DE/2017/009012" ;
+         :mnContactEmail "regulatory@siemens-healthineers.com" ;
+         :mnEudamedSrn "SRN-DE-MED-0003" ;
+         rdfs:label "Siemens Healthineers AG" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#MAN-004
+:MAN-004 rdf:type owl:NamedIndividual ,
+                  :Manufacturer ;
+         :locatedAt :Netherlands ;
+         :reportsTo :RIVM ;
+         :mnAuthorizationNumber "NL/2017/003456" ;
+         :mnContactEmail "regulatory@philips.com" ;
+         :mnEudamedSrn "SRN-NL-MED-0004" ;
+         rdfs:label "Philips Medical Systems" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#MAN-005
+:MAN-005 rdf:type owl:NamedIndividual ,
+                  :Manufacturer ;
+         :locatedAt :Germany ;
+         :reportsTo :BfArM ;
+         :mnAuthorizationNumber "DE/2017/007890" ;
+         :mnContactEmail "regulatory@roche.com" ;
+         :mnEudamedSrn "SRN-DE-MED-0005" ;
+         rdfs:label "Roche Diagnostics GmbH" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#MAN-006
+:MAN-006 rdf:type owl:NamedIndividual ,
+                  :Manufacturer ;
+         :locatedAt :Ireland ;
+         :reportsTo :HPRA ;
+         :mnAuthorizationNumber "IE/2017/002345" ;
+         :mnContactEmail "regulatory@bsci.com" ;
+         :mnEudamedSrn "SRN-IE-MED-0006" ;
+         rdfs:label "Boston Scientific Corporation" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#MAN-007
+:MAN-007 rdf:type owl:NamedIndividual ,
+                  :Manufacturer ;
+         :locatedAt :Netherlands ;
+         :reportsTo :RIVM ;
+         :mnAuthorizationNumber "NL/2017/006789" ;
+         :mnContactEmail "regulatory@stryker.com" ;
+         :mnEudamedSrn "SRN-NL-MED-0007" ;
+         rdfs:label "Stryker Corporation" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#MAN-008
+:MAN-008 rdf:type owl:NamedIndividual ,
+                  :Manufacturer ;
+         :locatedAt :Germany ;
+         :reportsTo :BfArM ;
+         :mnAuthorizationNumber "DE/2017/004567" ;
+         :mnContactEmail "regulatory@biotronik.com" ;
+         :mnEudamedSrn "SRN-DE-MED-0008" ;
+         rdfs:label "Biotronik SE & Co. KG" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#MAN-009
+:MAN-009 rdf:type owl:NamedIndividual ,
+                  :Manufacturer ;
+         :locatedAt :Sweden ;
+         :reportsTo :MPA ;
+         :mnAuthorizationNumber "SE/2017/008901" ;
+         :mnContactEmail "regulatory@gehealthcare.com" ;
+         :mnEudamedSrn "SRN-SE-MED-0009" ;
+         rdfs:label "GE HealthCare Technologies" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#MAN-010
+:MAN-010 rdf:type owl:NamedIndividual ,
+                  :Manufacturer ;
+         :locatedAt :Switzerland ;
+         :reportsTo :Swissmedic ;
+         :mnAuthorizationNumber "CH/2017/001122" ;
+         :mnContactEmail "regulatory@zimmerbiomet.com" ;
+         :mnEudamedSrn "SRN-CH-MED-0010" ;
+         rdfs:label "Zimmer Biomet Holdings" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#MAN-011
+:MAN-011 rdf:type owl:NamedIndividual ,
+                  :Manufacturer ;
+         :locatedAt :UK ;
+         :reportsTo :MHRA ;
+         :mnAuthorizationNumber "UK/2017/003344" ;
+         :mnContactEmail "regulatory@livanova.com" ;
+         :mnEudamedSrn "SRN-UK-MED-0011" ;
+         rdfs:label "LivaNova PLC" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#MAN-012
+:MAN-012 rdf:type owl:NamedIndividual ,
+                  :Manufacturer ;
+         :locatedAt :Germany ;
+         :reportsTo :BfArM ;
+         :mnAuthorizationNumber "DE/2017/005566" ;
+         :mnContactEmail "regulatory@draeger.com" ;
+         :mnEudamedSrn "SRN-DE-MED-0012" ;
+         rdfs:label "Drägerwerk AG & Co. KGaA" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#MAN-013
+:MAN-013 rdf:type owl:NamedIndividual ,
+                  :Manufacturer ;
+         :locatedAt :France ;
+         :reportsTo :ANSM ;
+         :mnAuthorizationNumber "FR/2017/007788" ;
+         :mnContactEmail "regulatory@nipro.com" ;
+         :mnEudamedSrn "SRN-FR-MED-0013" ;
+         rdfs:label "Nipro Corporation" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#MAN-014
+:MAN-014 rdf:type owl:NamedIndividual ,
+                  :Manufacturer ;
+         :locatedAt :Belgium ;
+         :reportsTo :AFMPS ;
+         :mnAuthorizationNumber "BE/2017/009900" ;
+         :mnContactEmail "regulatory@hologic.com" ;
+         :mnEudamedSrn "SRN-BE-MED-0014" ;
+         rdfs:label "Hologic Inc." .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#MAN-015
+:MAN-015 rdf:type owl:NamedIndividual ,
+                  :Manufacturer ;
+         :locatedAt :France ;
+         :reportsTo :ANSM ;
+         :mnAuthorizationNumber "FR/2017/002211" ;
+         :mnContactEmail "regulatory@biomerieux.com" ;
+         :mnEudamedSrn "SRN-FR-MED-0015" ;
+         rdfs:label "bioMérieux SA" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#MDR
+:MDR rdf:type owl:NamedIndividual ,
+              :RegulatoryFrame .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#MHRA
+:MHRA rdf:type owl:NamedIndividual ,
+               :CompetentAuthority ;
+      rdfs:label "Medicines and Healthcare products Regulatory Agency" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#MPA
+:MPA rdf:type owl:NamedIndividual ,
+              :CompetentAuthority ;
+     rdfs:label "Läkemedelsverket" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#Male
+:Male rdf:type owl:NamedIndividual ,
+               :Sex ;
+      rdfs:comment "Male biological sex." ;
+      rdfs:label "Male" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#Medium
+:Medium rdf:type owl:NamedIndividual ,
+                 :OccurrenceProbability ;
+        rdfs:comment "The probability of something occurring is medium." ;
+        rdfs:label "Medium probability" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#Moderate
+:Moderate rdf:type owl:NamedIndividual ,
+                   :RiskSeverity ;
+          rdfs:comment "The risk is moderate." ;
+          rdfs:label "Moderate risk" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#Netherlands
+:Netherlands rdf:type owl:NamedIndividual ,
+                      :Country ;
+             rdfs:comment "Netherlands Country" ;
+             rdfs:label "Netherlands" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#Norway
+:Norway rdf:type owl:NamedIndividual ,
+                 :Country ;
+        rdfs:comment "Nordic country Norway" ;
+        rdfs:label "Norway" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#OpenStatus
+:OpenStatus rdf:type owl:NamedIndividual ,
+                     :CorrectiveActionStatus ;
+            rdfs:comment "The corrective action is ongoing, is still open." ;
+            rdfs:label "Open status" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#PatientHarm
+:PatientHarm rdf:type owl:NamedIndividual ,
+                      :RiskCategory ;
+             rdfs:comment "The patient gets harmed." ;
+             rdfs:label "Patient harm" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#Poland
+:Poland rdf:type owl:NamedIndividual ,
+                 :Country ;
+        rdfs:comment "Poland Country" ;
+        rdfs:label "Poland" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#ProductQuality
+:ProductQuality rdf:type owl:NamedIndividual ,
+                         :RiskCategory ;
+                rdfs:comment "The quality of the device is below the required threshold." ;
+                rdfs:label "Product quality" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#RIVM
+:RIVM rdf:type owl:NamedIndividual ,
+               :CompetentAuthority ;
+      rdfs:label "Rijksinstituut voor Volksgezondheid en Milieu" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#RSK-001
+:RSK-001 rdf:type owl:NamedIndividual ,
+                  :MalfunctionRisk ,
+                  [ rdf:type owl:Restriction ;
+                    owl:onProperty :affectsDeviceType ;
+                    owl:someValuesFrom :ActiveDevice
+                  ] ;
+         :belongsToRiskCategory :DeviceFailure ;
+         :occursWithProbability :Low ;
+         :ofRiskSeverity :Critical ;
+         :rkImdrfCode "A0101" ;
+         rdfs:comment "Complete loss of electrical function leading to device shutdown" ;
+         rdfs:label "Device failure - electrical" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#RSK-002
+:RSK-002 rdf:type owl:NamedIndividual ,
+                  :MalfunctionRisk ,
+                  [ rdf:type owl:Restriction ;
+                    owl:onProperty :affectsDeviceType ;
+                    owl:someValuesFrom :ImplantableDevice
+                  ] ;
+         :belongsToRiskCategory :DeviceFailure ;
+         :occursWithProbability :Medium ;
+         :ofRiskSeverity :Critical ;
+         :rkImdrfCode "A0102" ;
+         rdfs:comment "Structural failure of mechanical components under physiological load" ;
+         rdfs:label "Device failure - mechanical" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#RSK-003
+:RSK-003 rdf:type owl:NamedIndividual ,
+                  :InjuryRisk ,
+                  [ rdf:type owl:Restriction ;
+                    owl:onProperty :affectsDeviceType ;
+                    owl:someValuesFrom :ImplantableActiveDevice
+                  ] ;
+         :belongsToRiskCategory :PatientHarm ;
+         :occursWithProbability :Low ;
+         :ofRiskSeverity :Critical ;
+         :rkImdrfCode "A0201" ;
+         rdfs:comment "Thrombus formation on device surface causing embolic events" ;
+         rdfs:label "Thrombosis - device-related" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#RSK-004
+:RSK-004 rdf:type owl:NamedIndividual ,
+                  :InjuryRisk ,
+                  [ rdf:type owl:Restriction ;
+                    owl:onProperty :affectsDeviceType ;
+                    owl:someValuesFrom :ActiveImplant
+                  ] ;
+         :belongsToRiskCategory :PatientHarm ;
+         :occursWithProbability :Low ;
+         :ofRiskSeverity :Serious ;
+         :rkImdrfCode "A0202" ;
+         rdfs:comment "Mechanical destruction of red blood cells by pump mechanism" ;
+         rdfs:label "Hemolysis - pump-induced" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#RSK-005
+:RSK-005 rdf:type owl:NamedIndividual ,
+                  :MalfunctionRisk ,
+                  [ rdf:type owl:Restriction ;
+                    owl:onProperty :affectsDeviceType ;
+                    owl:someValuesFrom :ImplantableDevice
+                  ] ;
+         :belongsToRiskCategory :DevicePerformance ;
+         :occursWithProbability :Low ;
+         :ofRiskSeverity :Serious ;
+         :rkImdrfCode "A0301" ;
+         rdfs:comment "Unintended displacement of implant from intended anatomical position" ;
+         rdfs:label "Device migration - implant" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#RSK-006
+:RSK-006 rdf:type owl:NamedIndividual ,
+                  :MalfunctionRisk ,
+                  [ rdf:type owl:Restriction ;
+                    owl:onProperty :affectsDeviceType ;
+                    owl:someValuesFrom :ActiveImplant
+                  ] ;
+         :belongsToRiskCategory :DevicePerformance ;
+         :occursWithProbability :Medium ;
+         :ofRiskSeverity :Serious ;
+         :rkImdrfCode "A0302" ;
+         rdfs:comment "Cardiac lead displacement requiring repositioning or replacement" ;
+         rdfs:label "Lead dislodgement" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#RSK-007
+:RSK-007 rdf:type owl:NamedIndividual ,
+                  :InfectionRisk ,
+                  [ rdf:type owl:Restriction ;
+                    owl:onProperty :affectsDeviceType ;
+                    owl:someValuesFrom :ImplantableDevice
+                  ] ;
+         :belongsToRiskCategory :PatientHarm ;
+         :occursWithProbability :Medium ;
+         :ofRiskSeverity :Serious ;
+         :rkImdrfCode "A0401" ;
+         rdfs:comment "Device-related infection at implantation site or systemic sepsis" ;
+         rdfs:label "Infection - device-related" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#RSK-008
+:RSK-008 rdf:type owl:NamedIndividual ,
+                  :InfectionRisk ,
+                  [ rdf:type owl:Restriction ;
+                    owl:onProperty :affectsDeviceType ;
+                    owl:someValuesFrom :ImplantableDevice
+                  ] ;
+         :belongsToRiskCategory :PatientHarm ;
+         :occursWithProbability :High ;
+         :ofRiskSeverity :Moderate ;
+         :rkImdrfCode "A0402" ;
+         rdfs:comment "Bacterial biofilm accumulation on implant surface resistant to antibiotics" ;
+         rdfs:label "Biofilm formation" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#RSK-009
+:RSK-009 rdf:type owl:NamedIndividual ,
+                  :MalfunctionRisk ,
+                  [ rdf:type owl:Restriction ;
+                    owl:onProperty :affectsDeviceType ;
+                    owl:someValuesFrom :ActiveImplant
+                  ] ;
+         :belongsToRiskCategory :DeviceFailure ;
+         :occursWithProbability :Low ;
+         :ofRiskSeverity :Critical ;
+         :rkImdrfCode "A0501" ;
+         rdfs:comment "Battery end-of-life earlier than specified, risking therapy interruption" ;
+         rdfs:label "Battery depletion - premature" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#RSK-010
+:RSK-010 rdf:type owl:NamedIndividual ,
+                  :SoftwareRisk ,
+                  [ rdf:type owl:Restriction ;
+                    owl:onProperty :affectsDeviceType ;
+                    owl:someValuesFrom :ActiveDevice
+                  ] ;
+         :belongsToRiskCategory :DeviceFailure ;
+         :occursWithProbability :Low ;
+         :ofRiskSeverity :Critical ;
+         :rkImdrfCode "A0502" ;
+         rdfs:comment "Software bug causing incorrect dosing, alarming, or therapy delivery" ;
+         rdfs:label "Software malfunction" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#RSK-011
+:RSK-011 rdf:type owl:NamedIndividual ,
+                  :RadiationRisk ,
+                  [ rdf:type owl:Restriction ;
+                    owl:onProperty :affectsDeviceType ;
+                    owl:someValuesFrom :ActiveDevice
+                  ] ;
+         :belongsToRiskCategory :PatientHarm ;
+         :occursWithProbability :Low ;
+         :ofRiskSeverity :Critical ;
+         :rkImdrfCode "A0601" ;
+         rdfs:comment "Unintended ionising radiation exposure exceeding therapeutic dose" ;
+         rdfs:label "Radiation overdose" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#RSK-012
+:RSK-012 rdf:type owl:NamedIndividual ,
+                  :InterferenceRisk ,
+                  [ rdf:type owl:Restriction ;
+                    owl:onProperty :affectsDeviceType ;
+                    owl:someValuesFrom :ImplantableDevice
+                  ] ;
+         :belongsToRiskCategory :DevicePerformance ;
+         :occursWithProbability :High ;
+         :ofRiskSeverity :Moderate ;
+         :rkImdrfCode "A0701" ;
+         rdfs:comment "Metallic implant causing MRI image artifacts compromising diagnostics" ;
+         rdfs:label "Metallic artifact - MRI" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#RSK-013
+:RSK-013 rdf:type owl:NamedIndividual ,
+                  :InterferenceRisk ,
+                  [ rdf:type owl:Restriction ;
+                    owl:onProperty :affectsDeviceType ;
+                    owl:someValuesFrom :ActiveImplant
+                  ] ;
+         :belongsToRiskCategory :DevicePerformance ;
+         :occursWithProbability :Low ;
+         :ofRiskSeverity :Serious ;
+         :rkImdrfCode "A0702" ;
+         rdfs:comment "External EMI affecting pacemaker/ICD sensing and pacing functions" ;
+         rdfs:label "Electromagnetic interference" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#RSK-014
+:RSK-014 rdf:type owl:NamedIndividual ,
+                  :DiagnosticRisk ,
+                  [ rdf:type owl:Restriction ;
+                    owl:onProperty :affectsDeviceType ;
+                    owl:someValuesFrom :InVitroDiagnosticDevice
+                  ] ;
+         :belongsToRiskCategory :DiagnosticError ;
+         :occursWithProbability :Medium ;
+         :ofRiskSeverity :Serious ;
+         :rkImdrfCode "B0101" ;
+         rdfs:comment "IVD test returns positive result in absence of target condition" ;
+         rdfs:label "False positive result" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#RSK-015
+:RSK-015 rdf:type owl:NamedIndividual ,
+                  :DiagnosticRisk ,
+                  [ rdf:type owl:Restriction ;
+                    owl:onProperty :affectsDeviceType ;
+                    owl:someValuesFrom :InVitroDiagnosticDevice
+                  ] ;
+         :belongsToRiskCategory :DiagnosticError ;
+         :occursWithProbability :Low ;
+         :ofRiskSeverity :Critical ;
+         :rkImdrfCode "B0102" ;
+         rdfs:comment "IVD test fails to detect target condition in affected individual" ;
+         rdfs:label "False negative result" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#RSK-016
+:RSK-016 rdf:type owl:NamedIndividual ,
+                  :DiagnosticRisk ,
+                  [ rdf:type owl:Restriction ;
+                    owl:onProperty :affectsDeviceType ;
+                    owl:someValuesFrom :InVitroDiagnosticDevice
+                  ] ;
+         :belongsToRiskCategory :DiagnosticError ;
+         :occursWithProbability :Medium ;
+         :ofRiskSeverity :Serious ;
+         :rkImdrfCode "B0201" ;
+         rdfs:comment "Reagent reacts with non-target analyte producing incorrect result" ;
+         rdfs:label "Cross-reactivity" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#RSK-017
+:RSK-017 rdf:type owl:NamedIndividual ,
+                  :ContaminationRisk ,
+                  [ rdf:type owl:Restriction ;
+                    owl:onProperty :affectsDeviceType ;
+                    owl:someValuesFrom :InVitroDiagnosticDevice
+                  ] ;
+         :belongsToRiskCategory :ProductQuality ;
+         :occursWithProbability :Low ;
+         :ofRiskSeverity :Critical ;
+         :rkImdrfCode "B0301" ;
+         rdfs:comment "Reagent lot contamination leading to systematic diagnostic errors" ;
+         rdfs:label "Contamination - reagent" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#RSK-018
+:RSK-018 rdf:type owl:NamedIndividual ,
+                  :CybersecurityRisk ,
+                  [ rdf:type owl:Restriction ;
+                    owl:onProperty :affectsDeviceType ;
+                    owl:someValuesFrom :ActiveDevice
+                  ] ;
+         :belongsToRiskCategory :DeviceSafety ;
+         :occursWithProbability :Low ;
+         :ofRiskSeverity :Critical ;
+         :rkImdrfCode "B0401" ;
+         rdfs:comment "Exploitable software vulnerability enabling unauthorized device access" ;
+         rdfs:label "Cybersecurity vulnerability" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#RSK-019
+:RSK-019 rdf:type owl:NamedIndividual ,
+                  :MaterialRisk ,
+                  [ rdf:type owl:Restriction ;
+                    owl:onProperty :affectsDeviceType ;
+                    owl:someValuesFrom :ImplantableDevice
+                  ] ;
+         :belongsToRiskCategory :PatientHarm ;
+         :occursWithProbability :Medium ;
+         :ofRiskSeverity :Serious ;
+         :rkImdrfCode "C0101" ;
+         rdfs:comment "Particulate debris from bearing surfaces causing adverse tissue reaction" ;
+         rdfs:label "Wear debris - joint implant" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#RSK-020
+:RSK-020 rdf:type owl:NamedIndividual ,
+                  :MaterialRisk ,
+                  [ rdf:type owl:Restriction ;
+                    owl:onProperty :affectsDeviceType ;
+                    owl:someValuesFrom :ImplantableDevice
+                  ] ;
+         :belongsToRiskCategory :PatientHarm ;
+         :occursWithProbability :Low ;
+         :ofRiskSeverity :Serious ;
+         :rkImdrfCode "C0201" ;
+         rdfs:comment "Metallic ion release from corrosion causing local or systemic toxicity" ;
+         rdfs:label "Corrosion - metallic implant" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#Serious
+:Serious rdf:type owl:NamedIndividual ,
+                  :RiskSeverity ;
+         rdfs:comment "The risk is serious." ;
+         rdfs:label "Serious risk" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#Spain
+:Spain rdf:type owl:NamedIndividual ,
+                :Country ;
+       rdfs:comment "Spain country" ;
+       rdfs:label "Spain" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#Sweden
+:Sweden rdf:type owl:NamedIndividual ,
+                 :Country ;
+        rdfs:comment "Sweden Country" ;
+        rdfs:label "Sweden" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#Swissmedic
+:Swissmedic rdf:type owl:NamedIndividual ,
+                     :CompetentAuthority ;
+            rdfs:label "Swissmedic" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#Switzerland
+:Switzerland rdf:type owl:NamedIndividual ,
+                      :Country ;
+             rdfs:comment "Switzerland country within the Alps" ;
+             rdfs:label "Switzerland" .
+
+
+###  http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito#UK
+:UK rdf:type owl:NamedIndividual ,
+             :Country ;
+    rdfs:comment "The country United Kingdom" ;
+    rdfs:label "United Kingdom" .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :ActiveDevice
+                :ActiveImplant
+                :ImplantableActiveDevice
+                :ImplantableDevice
+                :InVitroDiagnosticDevice
+                :SelfTestDevice
+                :SingleUseDevice
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :ContaminationRisk
+                :CybersecurityRisk
+                :DiagnosticRisk
+                :InfectionRisk
+                :InjuryRisk
+                :InterferenceRisk
+                :MalfunctionRisk
+                :MaterialRisk
+                :RadiationRisk
+                :SoftwareRisk
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :InSituCorrection
+                :Recall
+                :SafetyAlert
+                :UserNotice
+              )
+] .
+
+
+#################################################################
+#    Rules
+#################################################################
+
+<urn:swrl:var#i> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+<urn:swrl:var#d> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+<urn:swrl:var#m> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+<urn:swrl:var#r> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+<urn:swrl:var#age> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+[ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Incident ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#i>
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :affectsDevice ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#i> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#d>
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> :manufacturedBy ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#d> ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#m>
+                                                                           ] ;
+                                                                 rdf:rest rdf:nil
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :reportedBy ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#i> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#m>
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Incident ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#i>
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :involvesRisk ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#i> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#r>
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#classPredicate> :SoftwareRisk ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#r>
+                                                                           ] ;
+                                                                 rdf:rest rdf:nil
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :incCorrectiveActionTaken ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#i> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> "true"^^xsd:boolean
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Incident ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#i>
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :incPatientAge ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#i> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#age>
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#greaterThan> ;
+                                                                             <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                          rdf:first <urn:swrl:var#age> ;
+                                                                                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first 80 ;
+                                                                                                                                     rdf:rest rdf:nil
+                                                                                                                                   ]
+                                                                                                                        ]
+                                                                           ] ;
+                                                                 rdf:rest rdf:nil
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :SeriousIncident ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#i>
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+###  Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/
