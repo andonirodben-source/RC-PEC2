@@ -4,7 +4,7 @@
 <http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito> <http://purl.org/dc/terms/created> "2026-04-26"^^<http://www.w3.org/2001/XMLSchema#date> .
 <http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito> <http://purl.org/dc/terms/creator> " Andoni Rodriguez Benito" .
 <http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito> <http://purl.org/dc/terms/description> "An ontology about the european cataloge of high risk medical devices and in vitro diagnosis devices, inside the regulatory framework MDR (EU 2017/745) and IVDR (EU 2017/746)" .
-<http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito> <http://purl.org/dc/terms/title> " RC PEC2 Ontology" .
+<http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito> <http://purl.org/dc/terms/title> "High risk medical and in-vitro diagnostics devices (MDR and IVDR compliant)" .
 <http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito> <http://www.w3.org/2000/01/rdf-schema#label> "RC-PEC2-AndoniRodriguezBenito" .
 <http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito> <http://www.w3.org/2002/07/owl#versionInfo> "0.0.1" .
 <http://www.semanticweb.org/txony/ontologies/2026/3/RC_PEC2_Andoni_Rodriguez_Benito> <https://w3id.org/widoco/vocab#introduction> "The goal of the ontology is to allow the accurate share of data among manufacturers, regulatory entities, hospitals and patients." .

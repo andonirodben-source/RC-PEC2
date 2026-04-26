@@ -488,7 +488,7 @@
     "@value" : "An ontology about the european cataloge of high risk medical devices and in vitro diagnosis devices, inside the regulatory framework MDR (EU 2017/745) and IVDR (EU 2017/746)"
   } ],
   "http://purl.org/dc/terms/title" : [ {
-    "@value" : " RC PEC2 Ontology"
+    "@value" : "High risk medical and in-vitro diagnostics devices (MDR and IVDR compliant)"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@value" : "RC-PEC2-AndoniRodriguezBenito"

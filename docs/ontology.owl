@@ -17,7 +17,7 @@
         <terms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-04-26</terms:created>
         <terms:creator> Andoni Rodriguez Benito</terms:creator>
         <terms:description>An ontology about the european cataloge of high risk medical devices and in vitro diagnosis devices, inside the regulatory framework MDR (EU 2017/745) and IVDR (EU 2017/746)</terms:description>
-        <terms:title> RC PEC2 Ontology</terms:title>
+        <terms:title>High risk medical and in-vitro diagnostics devices (MDR and IVDR compliant)</terms:title>
         <rdfs:label>RC-PEC2-AndoniRodriguezBenito</rdfs:label>
         <owl:versionInfo>0.0.1</owl:versionInfo>
         <vocab:introduction>The goal of the ontology is to allow the accurate share of data among manufacturers, regulatory entities, hospitals and patients.</vocab:introduction>
